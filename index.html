@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthropic Style GitHub Page</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <!-- Reading Progress Indicator -->
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="progressBar"></div>
+    </div>
+    
+    <header>
+        <h1>Claude Code Agents and Hooks - Advanced Integration Patterns</h1>
+    </header>
+    <main>
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="Search documentation..." id="searchInput">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+                
+                <nav class="nav-section">
+                    <h3>Quick start</h3>
+                    <ul>
+                        <li><a href="#what-advanced-agents-and-hooks-do-for-you">What advanced agents and hooks do for you</a></li>
+                        <li><a href="#get-started-in-5-minutes">Get started in 5 minutes</a></li>
+                    </ul>
+                </nav>
+                
+                <nav class="nav-section">
+                    <h3>Core concepts</h3>
+                    <ul>
+                        <li><a href="#how-agents-transform-your-development">How agents transform your development</a></li>
+                        <li><a href="#how-hooks-automate-everything">How hooks automate everything</a></li>
+                    </ul>
+                </nav>
+                
+                <nav class="nav-section">
+                    <h3>Implementation</h3>
+                    <ul>
+                        <li><a href="#advanced-orchestration-patterns">Advanced orchestration patterns</a></li>
+                        <li><a href="#working-with-external-tools">Working with external tools</a></li>
+                    </ul>
+                </nav>
+                
+                <nav class="nav-section">
+                    <h3>Support & reference</h3>
+                    <ul>
+                        <li><a href="#performance-optimization">Performance optimization</a></li>
+                        <li><a href="#troubleshooting-and-debugging">Troubleshooting and debugging</a></li>
+                        <li><a href="#security-and-best-practices">Security and best practices</a></li>
+                        <li><a href="#glossary">Glossary</a></li>
+                        <li><a href="#future-features">Future features</a></li>
+
+                    </ul>
+                </nav>
+            </aside>
+            
+            <div class="main-content">
+
+              <div class="info-box">
+                <h4>📋 Documentation Strategy</h4>
+                <p>For information about the strategic approach and methodology behind this documentation, see the <a href="documentation-strategy.html">Documentation Strategy guide</a>.</p>
+            </div>
+
+            <div class="info-box">
+              <h4>See Also</h4>
+              <ul>
+                  <li><a href="https://docs.anthropic.com/en/docs/claude-code">Official Claude Code Overview</a> - Complete feature documentation</li>
+                  <li><a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code Best Practices</a> - Best practices and recommendations</li>
+              </ul>
+          </div>
+
+                <p>Claude Code's agents and hooks commands enable sophisticated development workflows that go beyond basic code generation. Automate your entire development workflow with Claude Code agents and hooks that handle code reviews, testing, documentation, and more while you focus on building features.</p>
+                
+                <div class="info-box">
+                  <h4>🛤️ Your path forward</h4>
+                  <ul>
+                      <li><strong>Week 1:</strong> Set up one automated workflow that solves a real problem</li>
+                      <li><strong>Week 2:</strong> Add hooks for automatic execution and validation</li>
+                      <li><strong>Week 3:</strong> Introduce specialized agents for different development domains</li>
+                      <li><strong>Week 4:</strong> Measure impact and optimize based on actual usage patterns</li>
+                  </ul>
+                  <p><strong>Start simple, build incrementally:</strong> The most successful implementations begin with one workflow that addresses a specific pain point, then expand based on demonstrated value.</p>
+              </div>
+                
+                <h2 id="what-advanced-agents-and-hooks-do-for-you">🚀 What agents and hooks do for you</h2>
+                <ul>
+                    <li><strong>🛡️ Eliminate manual code reviews</strong>: Set up AI agents that catch security vulnerabilities, performance issues, and style problems automatically on every code change</li>
+                    <li><strong>🧪 Write tests that create themselves</strong>: Implement test-driven development where your requirements turn into comprehensive test suites without manual work</li>
+                    <li><strong>📚 Keep documentation current</strong>: Your API docs, integration guides, and code examples update themselves when you change your code</li>
+                    <li><strong>🚫 Block dangerous operations</strong>: Hooks prevent destructive commands, sensitive file access, and security vulnerabilities before they happen</li>
+                    <li><strong>⚡ Scale your team's expertise</strong>: Every developer gets access to security, performance, and architecture specialists through specialized AI agents</li>
+                    <li><strong>🧩 Composable and scriptable</strong>: Build complex workflows by combining simple agents and hooks</li>
+                    <li><strong>🔗 Works with your existing workflow</strong>: Agents and hooks integrate seamlessly with your current development process and tools</li>
+                </ul>
+
+
+                <h2 id="get-started-in-5-minutes">⏱️ Get started in 5 minutes </h2>
+                <p><strong>📋 Prerequisites:</strong> Basic Claude Code knowledge and Claude Code installed (<a href="https://docs.anthropic.com/en/docs/claude-code/setup">get Claude Code</a>)</p>
+                
+                <div class="info-box warning">
+                    <p><strong>⚠️ Node.js Troubleshooting:</strong> You might run into Node.js issues regarding <code>ReferenceError: ReadableStream is not defined</code>. Try updating your Node version, but if that still does not work, a possible fix is running <code>source ~/.nvm/nvm.sh</code> before starting <code>claude</code>.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>🤖 Understanding Agents</h4>
+                    <p><strong>What they are:</strong> Specialized AI personas with specific expertise and behaviors defined in markdown configuration files.</p>
+                    <p><strong>Purpose:</strong> Transform Claude from a general assistant into a domain expert (e.g., backend architect, security engineer, data scientist).</p>
+                    <p><strong>How they work:</strong></p>
+                    <ul>
+                        <li>Stored as <code>.md</code> files in <code>~/.claude/agents/</code></li>
+                        <li>Contain instructions, expertise, and behavioral guidelines</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>🪝 Understanding Hooks</h4>
+                    <p><strong>What they are:</strong> Automated scripts that trigger at specific points in the development workflow.</p>
+                    <p><strong>Purpose:</strong> Integrate AI assistance seamlessly into your existing development process without manual intervention.</p>
+                    <p><strong>Common Hook Types:</strong></p>
+                    <ul>
+                        <li><strong>Pre-commit:</strong> Run code review before commits</li>
+                        <li><strong>Post-merge:</strong> Update documentation after merges</li>
+                        <li><strong>Pre-push:</strong> Security scan before pushing to remote</li>
+                        <li><strong>CI/CD:</strong> Test generation during builds</li>
+                    </ul>
+                    <p><strong>How they work:</strong></p>
+                    <ul>
+                        <li>Stored as executable scripts in <code>~/.claude/hooks/</code></li>
+                        <li>Triggered automatically by git events or development tools</li>
+                        <li>Can invoke specific agents for relevant tasks</li>
+                    </ul>
+                </div>
+
+                <h3>🔄 Your first automated workflow</h3>
+                <p>Set up automatic security reviews that run on every code change:</p>
+
+                <p><strong>1️⃣ Step 1:</strong> Create a security specialist agent</p>
+                <pre><code>mkdir -p ~/.claude/agents</code></pre>
+
+                <p>Create <code>~/.claude/agents/security-reviewer.md</code>:</p>
+                <pre><code>---
+name: "security-reviewer"
+description: "Security-focused code review specialist"
+---
+
+You specialize in identifying security vulnerabilities in code changes.
+
+## Focus areas
+- Input validation and sanitization
+- Authentication and authorization flaws
+- SQL injection and XSS vulnerabilities
+- Cryptographic implementations
+- Data exposure risks
+
+Provide specific remediation steps with code examples.</code></pre>
+
+                <div class="info-box">
+                    <h4>💡 Pro Tip: Subagent Integration</h4>
+                    <p>This agent can also be used as a <strong>subagent</strong> that can be called by your primary agent. The <code>description</code> section is very important, as it communicates to your primary agent when it should call this agent.</p>
+                    <p>In this case, when security-related prompts are detected, the primary agent will call this agent automatically. We'll talk more about subagents in the next section.
+                    </p>
+                </div>
+
+                <p><strong>2️⃣ Step 2:</strong> Add automatic triggers</p>
+                <pre><code>claude
+# In REPL: /hooks</code></pre>
+                
+                <ol>
+                    <li>Select <strong>PreToolUse</strong> → Add matcher <code>Edit|Write</code> → Add command:</li>
+                </ol>
+                <pre><code>echo "Running security review on code changes"</code></pre>
+                
+                <ol start="2">
+                    <li>Save to <strong>User settings</strong></li>
+                </ol>
+
+                <p><strong>3️⃣ Step 3:</strong> Test it</p>
+                <pre><code>claude -a security-reviewer -p "Review this login function for security issues"</code></pre>
+
+                <p><strong>🎉 Success!</strong> Your specialized security agent now analyzes every code change automatically.</p>
+
+                <h2 id="how-agents-transform-your-development">🤖 How agents transform your development <em>(15 minutes)</em></h2>
+                
+                <h3>💡 What agents and subagents do for you</h3>
+                <p>Remember, agents are <em>AI specialists</em> that remember context and maintain expertise across your entire development process. They handle the cognitive overhead of specialized knowledge so you can <strong>focus on building features</strong>.</p>
+
+                <p><strong>🎯 Single-purpose agents</strong> excel at focused tasks:</p>
+                <pre><code># ~/.claude/agents/test-engineer.md
+---
+name: "test-engineer"
+description: "Test design and coverage analysis"
+---
+
+You design comprehensive test suites and analyze coverage gaps.
+
+## Testing approach
+- Write tests before implementation (TDD)
+- Cover edge cases and error conditions
+- Focus on maintainable, readable tests
+- Ensure adequate coverage metrics
+
+Prioritize test quality over quantity.</code></pre>
+
+                <h3>Agent teams that work together (Primary agent + Subagents)</h3>
+
+                <div class="tip-box" style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #2196F3;">
+                    <strong>📚 Official Reference:</strong> For complete subagent implementation details, refer to the <a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" target="_blank" style="color: #1976D2; text-decoration: underline;">official documentation on subagents</a>.
+                </div>
+                
+                <p>Coordinate multiple specialists for complex projects:</p>
+
+                <div class="mermaid">
+graph TB
+    Dev[Developer] --> CC[Claude Code Session]
+    CC --> H1[SessionStart Hook]
+    H1 --> A1[Primary Agent]
+    
+    A1 --> H2[PreToolUse Hook]
+    H2 --> Tool[Tool Execution]
+    Tool --> H3[PostToolUse Hook]
+    
+    A1 --> A2[Subagent]
+    A2 --> H4[SubagentStop Hook]
+    
+    H3 --> H5[Notification Hook]
+    H5 --> H6[Stop Hook]
+                </div>
+
+                <p>This ecosystem enables sophisticated workflows where multiple agents collaborate, hooks provide governance and automation, and the entire system maintains coherent state management. This essentially means the agents running from the coordinator are subagents. 
+                  What's extremely important is how you write your prompt for the main agent as well as the prompts for the subagent.</p>
+
+
+                <div class="info-box">
+                    <h4>🎯 Subagent Design Principles</h4>
+                    
+                    <h5>Core Distinctions compared to main agents:</h5>
+                    <ul>
+                        <li><strong>No Direct User Interaction:</strong> Subagents only communicate with the main agent</li>
+                        <li><strong>Structured Output:</strong> Must return parseable data (JSON/XML/structured text)</li>
+                        <li><strong>Narrow Specialization:</strong> Handle one specific task very well</li>
+                        <li><strong>Integration Points:</strong> Define how they coordinate with main agents</li>
+                    </ul>
+                    
+                    <h5>Critical Sections:</h5>
+                    <ul>
+                        <li><strong>Input Specification:</strong> What data the main agent must provide</li>
+                        <li><strong>Output Format:</strong> Exact structure of returned results</li>
+                        <li><strong>Trigger Keywords:</strong> When the main agent should invoke this subagent</li>
+                        <li><strong>Error Handling:</strong> How to communicate failures back to main agent</li>
+                    </ul>
+                </div>
+
+               
+                <p>Here's how the above test-engineer agent would be modified to work better as a subagent:</p>
+
+                <pre><code># ~/.claude/agents/test-engineer.md
+---
+name: "test-engineer"
+type: "subagent"
+description: "Test design and coverage analysis"
+trigger_keywords: ["test", "coverage", "unit test", "tdd"]
+output_format: "markdown"
+---
+
+Analyze code and return structured test recommendations following TDD principles.
+
+## Input
+- **code**: Source code (required)
+- **language**: Programming language (required)
+- **test_type**: "unit" | "integration" | "all" (default: "all")
+
+## Process
+1. Identify testable functions and coverage gaps
+2. Design test scenarios for edge cases and errors
+3. Calculate coverage metrics and recommendations
+
+## Output Format
+```markdown
+## Coverage Analysis
+- Current: 65% | Target: 90%
+- Gaps: validateUser (lines 45-67), calculateTotal error cases
+
+## Test Recommendations
+
+### calculateTotal function
+- **Valid inputs**: [10,20] → 30
+- **Empty array**: [] → 0
+- **Null input**: null → error
+- **Invalid types**: ["a","b"] → error
+
+### validateUser function  
+- **Valid email**: user@domain.com → true
+- **Invalid format**: invalid-email → false
+- **Null input**: null → error
+
+## Metrics
+- Estimated tests: 15
+- Priority tests: 3
+- Effort: ~4 hours
+```
+
+## Rules
+- Return markdown only, no conversation
+- Focus on test quality over quantity
+- Flag complex cases for main agent
+- Complete within 30 seconds</code></pre>
+
+<p><strong>🎯 Agents calling subagents</strong>:</p>
+
+Below is an example of a multi-agent coordinator - essentially a "manager agent" that orchestrates complex workflows by delegating to specialist subagents.
+
+                <pre><code># ~/.claude/agents/coordinator.md
+---
+name: "coordinator"
+description: "Multi-agent workflow orchestrator"
+---
+
+You coordinate work between specialist agents for complex tasks.
+
+## Coordination process
+1. Analyze task requirements and scope
+2. Break down into domain-specific subtasks
+3. Assign subtasks to appropriate specialists
+4. Ensure context sharing between agents
+5. Integrate results into cohesive solutions
+
+## Available specialists
+- `security-reviewer`: Security analysis and vulnerability assessment
+- `test-engineer`: Test design and coverage analysis
+- `docs-maintainer`: Documentation creation and maintenance</code></pre>
+
+
+                <div class="mermaid">
+graph TD
+    User[👤 User] 
+    MainAgent[🤖 Coordinator Agent]
+    SubAgent1[🔧 Security Reviewer Agent]
+    SubAgent2[📊 Test Engineer Agent]
+    SubAgent3[🔍 Docs Maintainer Agent]
+
+    User -->|Request| MainAgent
+    MainAgent --> SubAgent1
+    MainAgent --> SubAgent2
+    MainAgent --> SubAgent3
+    SubAgent1 --> MainAgent
+    SubAgent2 --> MainAgent
+    SubAgent3 --> MainAgent
+    MainAgent -->|Response| User
+    
+    classDef userStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef mainAgentStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef subAgentStyle fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    
+    class User userStyle
+    class MainAgent mainAgentStyle
+    class SubAgent1,SubAgent2,SubAgent3 subAgentStyle
+                </div>
+
+                <p><strong>Run multiple subagents simultaneously at once </strong>with the coordinator primary agent:</p>
+                <pre><code>claude -a coordinator -p "Coordinate work between specialist agents for complex tasks"</code></pre>
+
+              Alternatively, you can also execute each of the 3 separately simultaneously on different Claude Code instances:
+
+                <pre><code># Multiple specialized agents working simultaneously
+claude -a security-reviewer -p "Review this login function for security issues"
+claude -a test-engineer -p "Design tests for this feature"
+claude -a docs-maintainer -p "Update documentation for this feature"</code></pre>
+
+                <p>Each agent focuses on their domain expertise while sharing project context through <code>CLAUDE.md</code> files.</p>
+
+
+                <h3>Context is everything! Keep your team aligned with project memory</h3>
+                
+                <p>Create <code>CLAUDE.md</code> files that give every agent instant <strong>context</strong> about your entire project:</p>
+
+                <pre><code># CLAUDE.md
+## Project Architecture
+- React frontend with TypeScript
+- Node.js backend with Express
+- PostgreSQL database with migrations
+- REST API following OpenAPI specification
+
+## Development Standards
+- ESLint and Prettier for code formatting
+- Jest for testing with 80%+ coverage requirement
+- Semantic versioning for releases
+- Git hooks for automated quality checks
+
+## Security Requirements
+- All API endpoints must have authentication
+- Input validation required for user data
+- No sensitive data in logs or error messages
+- Regular dependency updates for security patches</code></pre>
+
+
+                <h2 id="how-hooks-automate-everything">🔗 How hooks automate everything <em>(15 minutes)</em></h2>
+                
+                <h3>⚙️ What hooks do for you</h3>
+                <p>Hooks are <strong>shell commands that execute automatically</strong> at specific points in your development workflow. They ensure critical actions happen <em>every time</em>, without relying on you to remember.</p>
+
+                <p><strong>🎛️ Set up hooks through the interactive menu:</strong></p>
+                <pre><code>claude
+# In REPL: /hooks
+# Follow the menu to add, edit, or remove hooks</code></pre>
+
+                <p>This prevents syntax errors and gives you immediate validation.</p>
+
+                <h3>Hook types that solve real problems</h3>
+
+                <p><strong>PreToolUse hooks</strong> run before operations and can block dangerous actions:</p>
+                <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys, json, re; data = json.load(sys.stdin); cmd = data.get('tool_input', {}).get('command', ''); [sys.exit(2) for pattern in ['rm.*-rf', 'sudo rm', 'chmod 777'] if re.search(pattern, cmd)]\""
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Activates when Claude is about to use the "Bash" tool</p>
+                    <p><strong>Action:</strong> Runs a Python safety check that:</p>
+                    <ol>
+                        <li>Reads the bash command Claude wants to execute</li>
+                        <li>Scans for dangerous patterns:
+                            <ul>
+                                <li><code>rm.*-rf</code> (recursive force delete)</li>
+                                <li><code>sudo rm</code> (privileged delete commands)</li>
+                                <li><code>chmod 777</code> (overly permissive file permissions)</li>
+                            </ul>
+                        </li>
+                        <li>Exits with code 2 if any dangerous pattern is found, blocking execution</li>
+                    </ol>
+                </div>
+
+                <p><strong>PostToolUse hooks</strong> run after operations for validation and follow-up:</p>
+                <pre><code>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$TOOL_INPUT\" == *.ts || \"$TOOL_INPUT\" == *.js ]]; then npx prettier --write \"$TOOL_INPUT\"; fi"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Runs after Claude uses "Edit" or "Write" tools</p>
+                    <p><strong>Action:</strong> Automatically formats JavaScript/TypeScript files using Prettier</p>
+                    
+                    <h5>The Command Breakdown</h5>
+                    <pre><code>if [[ "$TOOL_INPUT" == *.ts || "$TOOL_INPUT" == *.js ]]; then 
+    npx prettier --write "$TOOL_INPUT"
+fi</code></pre>
+                    
+                    <p><strong>Logic:</strong></p>
+                    <ol>
+                        <li>Check if the file being edited has <code>.ts</code> or <code>.js</code> extension</li>
+                        <li>If yes, run Prettier to format the file in-place (<code>--write</code> flag)</li>
+                        <li>If no, do nothing</li>
+                    </ol>
+                </div>
+
+                <p><strong>Notification hooks</strong> customize how you get alerted:</p>
+                <pre><code>{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs attention\" with title \"Development Alert\"'"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Activates when Claude uses "Edit" or "Write" tools</p>
+                    <p><strong>Action:</strong> Shows a macOS system notification using AppleScript</p>
+                    
+                    <h5>The Command Breakdown</h5>
+                    <pre><code>osascript -e 'display notification "Claude Code needs attention" with title "Development Alert"'</code></pre>
+                    
+                    <p><strong>Components:</strong></p>
+                    <ul>
+                        <li><code>osascript</code> = macOS AppleScript command-line tool</li>
+                        <li><code>display notification</code> = AppleScript command for notifications</li>
+                        <li><strong>Message:</strong> "Claude Code needs attention"</li>
+                        <li><strong>Title:</strong> "Development Alert"</li>
+                    </ul>
+                    
+                    <h5>What You'd See</h5>
+                    <p>A macOS notification popup would appear showing:</p>
+                    <div style="background: #f5f5f5; padding: 10px; border-radius: 5px; font-family: monospace;">
+                        🔔 <strong>Development Alert</strong><br>
+                        &nbsp;&nbsp;&nbsp;Claude Code needs attention
+                    </div>
+                </div>
+
+                <h3>🎨 Advanced hook patterns</h3>
+
+                <p><strong>Security validation that blocks dangerous operations:</strong></p>
+                <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$TOOL_INPUT\" | grep -E '(\\.env|\\.git/|key|secret)'; then echo 'Blocked: Sensitive file access' >&2; exit 2; fi"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Runs before Claude uses the "Edit" tool</p>
+                    <p><strong>Action:</strong> Scans the file path/content and blocks access to sensitive files</p>
+                    
+                    <h5>The Command Breakdown</h5>
+                    <pre><code>if echo "$TOOL_INPUT" | grep -E '(\\.env|\\.git/|key|secret)'; then 
+    echo 'Blocked: Sensitive file access' >&2
+    exit 2
+fi</code></pre>
+                    
+                    <p><strong>Logic:</strong></p>
+                    <ol>
+                        <li>Check file path for sensitive patterns using regex</li>
+                        <li>If found: Print warning to stderr and exit with code 2 (blocking the edit)</li>
+                        <li>If not found: Continue normally</li>
+                    </ol>
+                    
+                    <h5>What Gets Blocked</h5>
+                    <p><strong>❌ Blocked Patterns:</strong></p>
+                    <ul>
+                        <li><code>.env</code> files (environment variables/secrets)</li>
+                        <li><code>.git/</code> directory (Git repository internals)</li>
+                        <li>Files containing <code>key</code> (API keys, private keys)</li>
+                        <li>Files containing <code>secret</code> (secrets, tokens)</li>
+                    </ul>
+                </div>
+
+                <p><strong>Automatic team notifications:</strong></p>
+                <pre><code>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$TOOL_INPUT\" | grep -E '(src/api|src/components)'; then echo 'Documentation update required for API changes'; fi"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <p>This hook acts as a documentation reminder system that alerts you when important code areas are modified.</p>
+                
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Runs after Claude uses "Edit" or "Write" tools</p>
+                    <p><strong>Action:</strong> Checks if changes were made to critical directories and reminds about documentation updates</p>
+                    
+                    <h5>The Command Breakdown</h5>
+                    <pre><code>if echo "$TOOL_INPUT" | grep -E '(src/api|src/components)'; then 
+    echo 'Documentation update required for API changes'
+fi</code></pre>
+                    
+                    <p><strong>Logic:</strong></p>
+                    <ol>
+                        <li>Check file path for important directories using regex</li>
+                        <li>If matches: Display documentation reminder</li>
+                        <li>If no match: Silent (no output)</li>
+                    </ol>
+                    
+                    <h5>What Triggers the Reminder</h5>
+                    <p><strong>📝 Triggers Alert:</strong></p>
+                    <ul>
+                        <li><code>src/api/users.js</code> → "Documentation update required for API changes"</li>
+                        <li><code>src/components/Header.tsx</code> → "Documentation update required for API changes"</li>
+                        <li><code>src/api/auth/login.ts</code> → "Documentation update required for API changes"</li>
+                        <li><code>src/components/forms/ContactForm.vue</code> → "Documentation update required for API changes"</li>
+                    </ul>
+                    
+                    <p><strong>🔇 No Alert:</strong></p>
+                    <ul>
+                        <li><code>src/utils/helpers.js</code> → Silent</li>
+                        <li><code>tests/unit.test.js</code> → Silent</li>
+                        <li><code>README.md</code> → Silent</li>
+                    </ul>
+                </div>
+
+                <h2 id="advanced-orchestration-patterns">🎼 Advanced orchestration patterns <em>(30 minutes)</em></h2>
+
+
+                <h3>🔍 Automated code review pipeline</h3>
+                <p><strong>✨ Eliminate manual reviews</strong> with specialized review agents and hooks:</p>
+
+                <p><strong>🛡️ Security review agent:</strong></p>
+                <p>This specialized agent acts as your team's security expert, automatically scanning every code change for common vulnerabilities and security anti-patterns. It catches issues like SQL injection, XSS vulnerabilities, and authentication flaws before they reach production.</p>
+                <pre><code># ~/.claude/agents/security-reviewer.md
+---
+name: "security-reviewer"
+description: "Security vulnerability assessment"
+---
+
+You are a security specialist who identifies vulnerabilities and provides actionable remediation guidance.
+
+## Analysis Focus Areas
+- Input validation and sanitization flaws
+- Authentication and authorization bypasses
+- SQL injection and XSS vulnerabilities  
+- Cryptographic implementation errors
+- Data exposure and privacy risks
+- API security and rate limiting issues
+
+## Response Format
+For each issue found:
+1. **Severity**: Critical/High/Medium/Low
+2. **Description**: What the vulnerability is
+3. **Impact**: What could happen if exploited
+4. **Fix**: Specific code changes needed
+5. **Example**: Secure implementation sample
+
+Prioritize critical and high-severity findings first.</code></pre>
+
+                <p><strong>⚡ Performance review agent:</strong></p>
+                <p>This agent serves as your performance optimization specialist, analyzing code changes for efficiency bottlenecks and scalability issues. It identifies slow database queries, memory leaks, and inefficient algorithms that could impact user experience at scale.</p>
+                <pre><code># ~/.claude/agents/performance-reviewer.md
+---
+name: "performance-reviewer"
+description: "Performance optimization analysis"
+---
+
+You are a performance specialist who identifies bottlenecks and provides optimization strategies.
+
+## Analysis Focus Areas
+- Database query efficiency and N+1 problems
+- Algorithm complexity and Big O optimization
+- Memory usage patterns and potential leaks
+- Resource consumption and caching opportunities
+- Network request optimization and batching
+- Frontend rendering and bundle size issues
+
+## Response Format
+For each performance issue:
+1. **Impact**: Expected performance degradation
+2. **Root Cause**: Why this creates a bottleneck
+3. **Measurement**: How to benchmark the issue
+4. **Solution**: Specific optimization approach
+5. **Code Example**: Optimized implementation
+6. **Monitoring**: How to track improvements
+
+Focus on changes that will have measurable impact on user experience.</code></pre>
+
+                <p><strong>Integration hook that triggers reviews:</strong></p>
+                <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "agent",
+            "agent": "security-reviewer",
+            "context": "{{tool_input}}"
+          },
+          {
+            "type": "agent",
+            "agent": "performance-reviewer",
+            "context": "{{tool_input}}"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <ol>
+                        <li>Claude prepares to edit code</li>
+                        <li>Hook system intercepts (PreToolUse)</li>
+                        <li>Security agent analyzes code → Reports vulnerabilities</li>
+                        <li>Performance agent analyzes code → Reports bottlenecks</li>
+                        <li>If no blocking issues, original edit proceeds</li>
+                    </ol>
+                    
+                    <h5>Expected Output</h5>
+                    <p>When Claude edits a file, you'd get reports like:</p>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <p><strong>Security Review:</strong></p>
+                        <div style="color: #d73a49; font-weight: bold;">🛡️ SECURITY FINDINGS:</div>
+                        <ul style="margin: 5px 0;">
+                            <li><strong>Severity:</strong> High</li>
+                            <li><strong>Description:</strong> SQL injection vulnerability in user query</li>
+                            <li><strong>Impact:</strong> Database compromise possible</li>
+                            <li><strong>Fix:</strong> Use parameterized queries</li>
+                        </ul>
+                        
+                        <p style="margin-top: 15px;"><strong>Performance Review:</strong></p>
+                        <div style="color: #f57c00; font-weight: bold;">⚡ PERFORMANCE FINDINGS:</div>
+                        <ul style="margin: 5px 0;">
+                            <li><strong>Impact:</strong> 200ms delay on user search</li>
+                            <li><strong>Root Cause:</strong> N+1 query pattern in user lookup</li>
+                            <li><strong>Solution:</strong> Add eager loading with joins</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>🧪 Test-driven development automation</h3>
+                <p><strong>Tests that write themselves</strong> from your requirements:</p>
+                <p>Tell the TDD agent your requirements, and it automatically creates comprehensive tests, then writes the code to pass them.</p>
+
+                <pre><code># ~/.claude/agents/tdd-specialist.md
+---
+name: "tdd-specialist"
+description: "Test-driven development with red-green-refactor cycle"
+tags: ["tdd", "testing"]
+---
+
+You are a TDD expert who strictly follows test-driven development and guides others through the red-green-refactor cycle.
+
+## Core Philosophy
+- Tests are specifications, not afterthoughts
+- Write the simplest code that makes tests pass
+- Refactor fearlessly with test safety net
+
+## Red-Green-Refactor Process
+
+### 🔴 RED Phase
+1. Write failing test that describes desired behavior
+2. Run test - confirm it fails for the right reason
+3. Think minimal - what's the smallest step to make this pass?
+
+### 🟢 GREEN Phase
+1. Write minimal code to make the test pass
+2. Run test - confirm it passes
+3. Resist adding extra features
+
+### 🔵 REFACTOR Phase
+1. Improve code quality while keeping tests green
+2. Remove duplication, improve naming
+3. Run tests after each change
+
+## Quality Standards
+- **Test Naming**: Describe behavior clearly
+  - ✅ `test_empty_username_raises_validation_error`
+  - ❌ `test_user_validation`
+- **One behavior per test**
+- **Arrange-Act-Assert structure**
+- **Simple, obvious test code**
+
+## Common Patterns
+- **Triangulation**: Add test cases to drive generalization
+- **Fake It**: Return hard-coded values, then generalize
+- **Test List**: Maintain backlog of tests to write
+
+## Communication Style
+- Walk through each phase explicitly
+- Explain the "why" behind each test
+- Show before/after in refactor steps
+- Gently redirect when straying from TDD
+
+## Example Flow
+```
+🔴 Write failing test for Calculator.add(2,3) → 5
+🟢 Implement: return 5 (fake it!)
+🔵 Refactor: return a + b (generalize)
+🔴 Next test: Calculator.add(0,0) → 0
+```
+
+Always start with the failing test. Never write implementation code first.</code></pre>
+
+                <h3>📝 Documentation that stays current and up to date</h3>
+                <div class="info-box">
+                  <h4>📚 The Documentation Challenge</h4>
+                  <p><strong>A major pain point:</strong> Documentation gets outdated very fast. This creates a perfect opportunity and use case for <strong>Agents and Hooks to auto-update or generate documentation</strong>.</p>
+                </div>
+                
+                <p><strong>Never worry about outdated docs again:</strong></p>
+
+                <pre><code># ~/.claude/agents/docs-maintainer.md
+---
+name: "docs-maintainer"
+description: "Documentation synchronization and updates"
+---
+
+You maintain accurate, up-to-date documentation synchronized with code changes.
+If there are no docs, create them.
+
+## Responsibilities
+- Update API documentation for endpoint changes
+- Refresh code examples to match current implementation
+- Maintain integration guides and setup instructions
+- Check for broken references and outdated information
+
+Focus on keeping documentation aligned with code reality.</code></pre>
+
+                <p><strong>Hook that triggers documentation updates:</strong></p>
+                <pre><code>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$TOOL_INPUT\" | grep -E '(src/api|src/components)'; then echo 'Auto-updating documentation...'; fi"
+          },
+          {
+            "type": "agent",
+            "agent": "docs-maintainer",
+            "context": "{{tool_input}}",
+            "condition": "matches(tool_input, 'src/api|src/components')"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p>Hook detects change in <code>src/api/</code> → <code>docs-maintainer</code> agent automatically:</p>
+                    <ul>
+                        <li>Updates API docs: <code>GET /users?page=1&limit=10&role=admin</code></li>
+                        <li>Refreshes code examples with new parameters</li>
+                        <li>Updates integration guides</li>
+                        <li>Checks OpenAPI/Swagger specs</li>
+                        <li>Validates example responses</li>
+                    </ul>
+                    
+                    <h5>🎯 What Gets Auto-Updated</h5>
+                    <p><strong>API Changes (<code>src/api/</code>):</strong></p>
+                    <ul>
+                        <li>Endpoint documentation</li>
+                        <li>Parameter descriptions</li>
+                        <li>Response schemas</li>
+                        <li>Authentication requirements</li>
+                        <li>Rate limiting info</li>
+                    </ul>
+                    
+                    <p><strong>Component Changes (<code>src/components/</code>):</strong></p>
+                    <ul>
+                        <li>Props documentation</li>
+                        <li>Usage examples</li>
+                        <li>Storybook stories</li>
+                        <li>Integration guides</li>
+                        <li>Breaking change notes</li>
+                    </ul>
+                    
+                    <h5>🔧 Intelligent Context Passing</h5>
+                    <p><code>"context": "{{tool_input}}"</code></p>
+                    <p><strong>The agent receives:</strong></p>
+                    <ul>
+                        <li>File path: <code>src/api/users.js</code></li>
+                        <li>Change details: What was modified</li>
+                        <li>Code context: The actual changes made</li>
+                    </ul>
+                </div>
+
+                <h3>🛡️ Multi-layer security validation</h3>
+                <p><strong>Enterprise-grade protection through layered security:</strong></p>
+
+                <div class="mermaid">
+graph TB
+    subgraph Security Layer 1
+        PTU[PreToolUse Hook] --> SecScan[Security Scanner]
+        SecScan --> Blocklist[Dangerous Operation Filter]
+        Blocklist --> Allow{Allow?}
+        Allow -->|No| Block[Block Execution]
+        Allow -->|Yes| L2[Layer 2]
+    end
+    
+    subgraph Security Layer 2
+        L2 --> SecAgent[Security Agent]
+        SecAgent --> CodeAnalysis[Deep Code Analysis]
+        CodeAnalysis --> VulnCheck[Vulnerability Assessment]
+        VulnCheck --> Approve{Approve?}
+        Approve -->|No| Escalate[Human Review]
+        Approve -->|Yes| Execute[Execute with Monitoring]
+    end
+    
+    subgraph Monitoring
+        Execute --> Monitor[Continuous Monitoring]
+        Monitor --> Alert[Alert on Anomalies]
+        Alert --> Audit[Audit Trail]
+    end
+    
+    style Block fill:#ffebee
+    style Escalate fill:#fff3e0
+    style Execute fill:#e8f5e8
+                </div>
+
+                <p><strong>Layer 1 - Fast filtering:</strong></p>
+
+                <p>This hook is an enhanced security filter that blocks dangerous bash commands with more comprehensive protection than the earlier version.</p>
+
+                <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys, json, re; data = json.load(sys.stdin); cmd = data.get('tool_input', {}).get('command', ''); dangerous = ['rm.*-[rf]', 'sudo.*rm', 'chmod.*777', '>.*\\/etc\\/']; [print('BLOCKED: Dangerous pattern detected', file=sys.stderr) or sys.exit(2) for p in dangerous if re.search(p, cmd, re.I)]\""
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>⚡ Layer 1 Characteristics</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Lightning-fast prevention of obviously dangerous commands</li>
+                        <li><strong>When:</strong> Before ANY bash command executes</li>
+                        <li><strong>Speed:</strong> Milliseconds (regex pattern matching)</li>
+                        <li><strong>Scope:</strong> Command-line operations only</li>
+                    </ul>
+                </div>
+
+                <p><strong>Layer 2 - Deep analysis agent:</strong></p>
+                <pre><code># ~/.claude/agents/security-analyzer.md
+---
+name: "security-analyzer"
+description: "Deep security analysis of code changes"
+---
+
+You perform comprehensive security analysis of code changes.
+
+## Analysis areas
+- Input validation and sanitization
+- Authentication and authorization logic
+- Data exposure and privacy concerns
+- Cryptographic usage patterns
+- Third-party dependency security
+
+Escalate to human review when uncertain about security implications.</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 Layer 2 Characteristics</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Thorough security review of code logic and patterns</li>
+                        <li><strong>When:</strong> After code changes (or on-demand)</li>
+                        <li><strong>Speed:</strong> Seconds/minutes (AI analysis)</li>
+                        <li><strong>Scope:</strong> All code changes, logic flows, architecture</li>
+                    </ul>
+                    
+                    <h5>Example Workflow</h5>
+                    <ol>
+                        <li><strong>Developer requests:</strong> "Delete old log files and update user auth"</li>
+                        <li><strong>Layer 1:</strong> Scans bash commands for dangerous patterns
+                            <ul>
+                                <li><code>rm -rf /var/logs/*</code> → <span style="color: #d73a49; font-weight: bold;">BLOCKED</span> (dangerous pattern)</li>
+                                <li>Prevents execution, no damage possible</li>
+                            </ul>
+                        </li>
+                        <li><strong>Layer 2:</strong> Reviews authentication code changes
+                            <ul>
+                                <li>Analyzes auth logic for security flaws</li>
+                                <li>Checks for proper input validation</li>
+                                <li>Reviews session management</li>
+                                <li>Flags potential vulnerabilities</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                
+                <h3>🎯 Planning and execution separation</h3>
+                <p><strong>Strategic thinking separated from tactical implementation:</strong></p>
+
+                <p><strong>Planner agent</strong> for strategic decisions:</p>
+                <pre><code># ~/.claude/agents/architect.md
+---
+name: "architect"
+description: "Strategic planning and system design"
+---
+
+You create detailed implementation plans and architectural designs.
+
+## Planning process
+1. Analyze requirements and constraints
+2. Design system architecture and component interactions
+3. Create detailed implementation roadmaps
+4. Identify dependencies and potential risks
+5. Provide structured handoff to implementation teams
+
+Focus on strategic thinking and system-level design decisions.</code></pre>
+
+                <p><strong>Implementation agent</strong> for tactical execution:</p>
+                <pre><code># ~/.claude/agents/implementer.md
+---
+name: "implementer"
+description: "Code implementation and problem solving"
+---
+
+You implement detailed plans with focus on code quality and best practices.
+
+## Implementation process
+1. Follow architectural guidelines and implementation plans
+2. Write clean, testable, maintainable code
+3. Handle edge cases and error conditions appropriately
+4. Provide implementation feedback to planning team
+5. Request architectural clarification when needed
+
+Focus on implementation quality and tactical problem-solving.</code></pre>
+
+                <p><strong>Why this works:</strong> Planning requires different thinking than implementation. Separate agents optimize for each phase.</p>
+
+                <p>These are some examples of patterns to get you started. There are of course many more complex patterns you can build on top of this.</p>
+
+                <h2 id="working-with-external-tools">🔌 Working with external tools <em>(10 minutes)</em></h2>
+
+                <h3>🔗 MCP tool integration</h3>
+                <p><strong>Connect to your entire development ecosystem</strong> through MCP (Model Context Protocol):</p>
+                
+                <div class="info-box">
+                    <h4>📚 Learn More About MCP</h4>
+                    <p>For complete MCP documentation, setup guides, and available integrations, see the <a href="https://docs.anthropic.com/en/docs/mcp" target="_blank">official MCP documentation</a>.</p>
+                </div>
+
+                <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__github__*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'GitHub operation detected - verifying permissions'"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__filesystem__write_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'File write operation - running security check'"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <p>This hook provides MCP (Model Context Protocol) operation monitoring with security awareness for external tool usage.</p>
+                
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Runs before Claude uses specific MCP tools</p>
+                    <p><strong>Action:</strong> Logs and verifies operations involving GitHub and file system access</p>
+                    
+                    <h5>The Two Matchers Breakdown</h5>
+                    <ol>
+                        <li><strong>GitHub Operations Monitor</strong>
+                            <ul>
+                                <li><strong>Matcher:</strong> <code>"mcp__github__*"</code></li>
+                                <li><strong>Catches:</strong> Any GitHub MCP tool usage (<code>mcp__github__create_repo</code>, <code>mcp__github__push</code>, etc.)</li>
+                                <li><strong>Action:</strong> <code>echo 'GitHub operation detected - verifying permissions'</code></li>
+                                <li><strong>Purpose:</strong> Audit trail for repository operations</li>
+                            </ul>
+                        </li>
+                        <li><strong>File Write Monitor</strong>
+                            <ul>
+                                <li><strong>Matcher:</strong> <code>"mcp__filesystem__write_file"</code></li>
+                                <li><strong>Catches:</strong> Specific file write operations through MCP filesystem tools</li>
+                                <li><strong>Action:</strong> <code>echo 'File write operation - running security check'</code></li>
+                                <li><strong>Purpose:</strong> Security verification for file modifications</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <h5>🔍 What Gets Monitored</h5>
+                    <p><strong>✅ GitHub Operations Detected:</strong></p>
+                    <ul>
+                        <li><code>mcp__github__create_issue</code> → "GitHub operation detected..."</li>
+                        <li><code>mcp__github__commit_changes</code> → "GitHub operation detected..."</li>
+                        <li><code>mcp__github__create_pr</code> → "GitHub operation detected..."</li>
+                    </ul>
+                    
+                    <p><strong>✅ File Operations Detected:</strong></p>
+                    <ul>
+                        <li><code>mcp__filesystem__write_file</code> → "File write operation - running security check"</li>
+                    </ul>
+                    
+                    <p><strong>❌ Not Monitored:</strong></p>
+                    <ul>
+                        <li><code>mcp__filesystem__read_file</code> (only write operations)</li>
+                        <li><code>mcp__database__query</code> (different MCP tool)</li>
+                        <li>Regular Claude tools (Edit, Write, Bash)</li>
+                    </ul>
+                </div>
+
+                <p><strong>Popular integrations:</strong></p>
+                <ul>
+                    <li><strong>GitHub:</strong> <code>mcp__github__create_pull_request</code>, <code>mcp__github__list_issues</code></li>
+                    <li><strong>Filesystem:</strong> <code>mcp__filesystem__read_file</code>, <code>mcp__filesystem__write_file</code></li>
+                    <li><strong>Memory:</strong> <code>mcp__memory__create_entities</code>, <code>mcp__memory__search_entities</code></li>
+                </ul>
+
+                <h3>⚙️ External tool automation</h3>
+                <p><strong>Hooks work with any command-line tool:</strong></p>
+
+                <pre><code>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git add \"$TOOL_INPUT\" && git commit -m \"Auto-commit: $(basename \"$TOOL_INPUT\") - $(date '+%Y-%m-%d %H:%M')\""
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                <div class="info-box">
+                    <h4>🔍 What It Does</h4>
+                    <p><strong>Trigger:</strong> Runs after Claude uses "Edit" or "Write" tools</p>
+                    <p><strong>Action:</strong> Automatically commits the changed file to Git with a timestamped message</p>
+                    
+                    <h5>The Command Breakdown</h5>
+                    <pre><code>git add "$TOOL_INPUT" && 
+git commit -m "Auto-commit: $(basename "$TOOL_INPUT") - $(date '+%Y-%m-%d %H:%M')"</code></pre>
+                    
+                    <p><strong>Steps:</strong></p>
+                    <ol>
+                        <li><code>git add "$TOOL_INPUT"</code> → Stage the file Claude just modified</li>
+                        <li><code>git commit -m "..."</code> → Commit with auto-generated message</li>
+                        <li><strong>Message format:</strong> "Auto-commit: filename - 2025-08-08 14:30"</li>
+                    </ol>
+                </div>
+
+                <p>This automatically commits every file change with descriptive messages.</p>
+
+
+
+                <h2 id="performance-optimization">⚡ Performance optimization <em>(5 minutes)</em></h2>
+                
+                <h3>🚀 Keep workflows fast</h3>
+                
+                <p><strong>🤖 Agent performance:</strong></p>
+                <ul>
+                    <li>Keep agents focused on specific domains</li>
+                    <li>Use <code>/compact</code> to summarize long conversations</li>
+                    <li>Monitor token usage with <code>/cost</code></li>
+                    <li>Reset context with <code>/clear</code> between different tasks</li>
+                </ul>
+
+                <p><strong>🔗 Hook performance:</strong></p>
+                <ul>
+                    <li>Keep hook execution under 5 seconds when possible</li>
+                    <li>Use timeouts to prevent hanging: <code>timeout 5s your-command</code></li>
+                    <li>Run expensive operations in PostToolUse hooks</li>
+                    <li>Test commands manually before adding to hooks</li>
+                </ul>
+
+                <p><strong>⚡ Parallel processing:</strong></p>
+                <p>Run multiple agents simultaneously for complex projects. Each agent maintains specialized context while sharing project knowledge.</p>
+
+                <h3>🧠 Context management strategies</h3>
+
+                <p><strong>Smart context optimization:</strong></p>
+                <pre><code># Use compact to preserve important context while reducing token usage
+claude
+# In REPL: /compact
+
+# Check current token usage and costs
+# In REPL: /cost
+
+# Clear context completely for new tasks
+# In REPL: /clear</code></pre>
+
+                <p><strong>📋 Project context sharing:</strong></p>
+                <ul>
+                    <li>Use <code>CLAUDE.md</code> for project-wide knowledge</li>
+                    <li>Keep agent configurations in version control</li>
+                    <li>Use environment-specific settings files</li>
+                </ul>
+
+                <h2 id="troubleshooting-and-debugging">🐛 Troubleshooting and debugging <em>(10 minutes)</em></h2>
+
+                <h3>❌ Agent not responding or giving unexpected results:</h3>
+                <pre><code># Check if agent files exist
+ls ~/.claude/agents/
+ls .claude/agents/
+
+# Verify configuration
+claude
+# In REPL: /config
+
+# Run with detailed logging
+claude --verbose</code></pre>
+
+                <p><strong>Common issues and fixes:</strong></p>
+                <ul>
+                    <li><strong>Agents not responding:</strong> Check YAML frontmatter syntax in agent files</li>
+                    <li><strong>Lost context:</strong> Use <code>/compact</code> instead of losing conversation history</li>
+                    <li><strong>Inconsistent results:</strong> Verify agent names are unique and descriptive</li>
+                    <li><strong>File permission errors:</strong> Ensure Claude Code can read your agent configuration files</li>
+                </ul>
+
+                <h3>🔧 My hook isn't working - start here:</h3>
+
+                <p><strong>1. Is your hook configuration valid?</strong></p>
+                <pre><code># Check if hooks appear in configuration
+claude
+# In REPL: /hooks</code></pre>
+                <ul>
+                    <li>✅ <strong>Hooks appear in menu</strong> → Go to step 2</li>
+                    <li>❌ <strong>Hooks missing or error</strong> → Fix JSON syntax in settings file</li>
+                </ul>
+
+                <p><strong>2. Is the hook executing at all?</strong></p>
+                <pre><code># Run with verbose logging
+claude --verbose
+# Press Ctrl-R during session to see hook execution</code></pre>
+                <ul>
+                    <li>✅ <strong>Hook executes but fails</strong> → Go to step 3</li>
+                    <li>❌ <strong>Hook never executes</strong> → Check matcher pattern (step 4)</li>
+                </ul>
+
+                <p><strong>3. Is the hook command working?</strong></p>
+                <pre><code># Test the command manually
+echo '{"tool_input":{"command":"ls"}}' | your-hook-command</code></pre>
+                <ul>
+                    <li>✅ <strong>Command works manually</strong> → Check timeout/permissions (step 5)</li>
+                    <li>❌ <strong>Command fails manually</strong> → Fix the command syntax</li>
+                </ul>
+
+                <p><strong>4. Is your matcher pattern correct?</strong></p>
+                <ul>
+                    <li><code>"Bash"</code> - matches only Bash tool</li>
+                    <li><code>"Edit|Write"</code> - matches Edit OR Write tools</li>
+                    <li><code>"*"</code> or <code>""</code> - matches all tools</li>
+                    <li>Case-sensitive matching required</li>
+                </ul>
+
+                <p><strong>5. Are there timeout or permission issues?</strong></p>
+                <pre><code># Check if command completes within 60 seconds
+timeout 60s your-hook-command
+
+# Verify file permissions
+ls -la .claude/hooks/your-script.sh</code></pre>
+
+                <p><strong>6. Are environment variables available?</strong></p>
+                <pre><code># Add debug output to your hook
+echo "TOOL_INPUT: $TOOL_INPUT" >&2
+echo "Session ID: $session_id" >&2</code></pre>
+
+                <p><strong>7. Is the hook in the right location?</strong></p>
+                <ul>
+                    <li><code>~/.claude/settings.json</code> - User-wide hooks</li>
+                    <li><code>.claude/settings.json</code> - Project-wide hooks (committed)</li>
+                    <li><code>.claude/settings.local.json</code> - Local project hooks (not committed)</li>
+                </ul>
+
+                <p><strong>8. Common JSON syntax errors:</strong></p>
+                <pre><code>❌ Wrong: "PreToolUse": { "Bash": [...] }
+✅ Correct: "PreToolUse": [{ "matcher": "Bash", "hooks": [...] }]
+
+❌ Wrong: Unescaped quotes in command
+✅ Correct: Properly escaped quotes \"like this\"</code></pre>
+
+                <p><strong>9. Still not working?</strong></p>
+                <ol>
+                    <li>Restart Claude Code session</li>
+                    <li>Check logs in transcript mode (Ctrl-R)</li>
+                    <li>Test with minimal hook first:</li>
+                </ol>
+                <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",  
+            "command": "echo 'Hook working!' >&2"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+                
+                    <h4>10. Get help:</h4>
+                    <ul>
+                        <li>Check <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Hooks Reference</a> for latest syntax</li>
+                        <li>Use <code>/hooks</code> interactive menu to avoid JSON errors</li>
+                        <li>Test commands outside Claude Code first</li>
+                    </ul>
+
+                <h3>🚧 Performance bottlenecks</h3>
+                <p><strong>Identify slow workflows:</strong></p>
+                <pre><code># Run with timing information
+claude --verbose -p "your request"</code></pre>
+
+                <p><strong>Speed optimization checklist:</strong></p>
+                <ul>
+                    <li>☐ Hook execution under 5 seconds when possible</li>
+                    <li>☐ Agents have focused, specific roles</li>
+                    <li>☐ Context windows under token limits</li>
+                    <li>☐ Expensive operations run asynchronously</li>
+                    <li>☐ Configuration loaded through REPL</li>
+                </ul>
+
+                <h2 id="security-and-best-practices">🔒 Security and best practices <em>(5 minutes)</em></h2>
+
+                <h3>🤖 Agent design best practices</h3>
+                <p><strong>Single responsibility:</strong> Each agent should excel at one specific area rather than trying to handle everything.</p>
+
+                <p><strong>Clear handoffs:</strong> Define how agents communicate:</p>
+                <pre><code>## Agent Handoff Protocol
+When completing assigned work:
+1. Summarize what was accomplished
+2. List remaining tasks or identified issues
+3. Provide specific context for subsequent agents
+4. Include relevant file paths and code references</code></pre>
+
+                <p><strong>Graceful error handling:</strong></p>
+                <pre><code>## Error Handling Approach
+When unable to complete requested tasks:
+1. Explain what went wrong and why
+2. Suggest alternative approaches or workarounds
+3. Provide partial results when possible
+4. Escalate to human review for complex issues</code></pre>
+
+                <h3>⚙️ Configuration management</h3>
+                <p><strong>Version control your setup:</strong></p>
+                <pre><code># Track configurations in git
+git add ~/.claude/agents/
+git add .claude/settings.json
+git commit -m "Update agent configurations for project workflow"</code></pre>
+
+                <p><strong>Environment-specific settings:</strong></p>
+                <ul>
+                    <li><code>~/.claude/settings.json</code> - User-wide preferences</li>
+                    <li><code>.claude/settings.json</code> - Project-specific configurations</li>
+                    <li><code>.claude/settings.local.json</code> - Local overrides (add to .gitignore)</li>
+                </ul>
+
+                <p><strong>Test before deploying:</strong> Always validate new configurations in isolated environments before using in production workflows.</p>
+                
+
+                <h2 id="glossary">📚 Glossary </h2>
+                
+                <p><strong>Agent</strong>: An AI specialist configured with a specific system prompt, tools, and expertise area. Agents operate in separate context windows and can be invoked automatically or explicitly.</p>
+
+                <p><strong>Hook</strong>: A shell command that executes automatically at specific points in Claude Code's lifecycle (before/after tool use, on notifications, etc.).</p>
+
+                <p><strong>Hook Event</strong>: The trigger point when a hook executes - PreToolUse, PostToolUse, Notification, Stop, UserPromptSubmit, SessionStart, or SubagentStop.</p>
+
+                <p><strong>Matcher</strong>: A pattern that determines which tools trigger a hook. Examples: "Bash", "Edit|Write", "*" (all tools), or "" (empty for events without tools).</p>
+
+                <p><strong>MCP (Model Context Protocol)</strong>: A standard protocol that allows Claude Code to integrate with external tools and services like GitHub, filesystems, and databases.</p>
+
+                <p><strong>Project Memory (CLAUDE.md)</strong>: A markdown file containing project-specific context, commands, and standards that agents automatically load for context.</p>
+
+                <p><strong>Subagent</strong>: A specialized agent that operates independently with its own context window, invoked by the main Claude session for specific tasks.</p>
+
+                <p><strong>Tool</strong>: A capability Claude Code can use to interact with your system - Read, Write, Edit, Bash, WebSearch, etc. Tools can be restricted by permissions.</p>
+
+                <p><strong>Tool Input</strong>: The JSON data containing parameters for a tool execution, available to hooks as environment variables.</p>
+
+                <p><strong>Tool Response</strong>: The JSON data containing results from a completed tool execution, available to PostToolUse hooks.</p>
+
+                <p><strong>Transcript Mode</strong>: A debugging mode (Ctrl-R) that shows detailed hook execution, commands run, and system interactions.</p>
+
+                <p><strong>YAML Frontmatter</strong>: The configuration section at the top of agent files, containing name, description, tools, and other metadata.</p>                
+
+                <h2 id="future-features">� Future features (Features that I would flesh out if I had more time)</h2>
+                
+                <h2 id="more-advanced-pattern-examples">🔧 Even more advanced pattern examples</h2>
+                <p>Complex workflows and real-world implementations. This section would be fleshed out if I had more time.</p>
+
+                <h3>🔗 Multi-Stage Agent Coordination Example</h3>
+                <p><strong>Complex workflow orchestration</strong> with multiple processing stages:</p>
+
+                <div class="mermaid">
+graph TD
+    User[👤 User]
+    MainAgent1[🤖 Main Agent]
+    
+    SubAgent1A[🔍 Sub Agent 1A<br/>Code Analysis]
+    SubAgent1B[📊 Sub Agent 1B<br/>Test Coverage]
+    SubAgent1C[📝 Sub Agent 1C<br/>Documentation]
+    
+    MainAgent2[🤖 Main Agent]
+    
+    SubAgent2A[🛡️ Sub Agent 2A<br/>Security Review]
+    SubAgent2B[⚡ Sub Agent 2B<br/>Performance Check]
+    
+    MainAgent3[🤖 Main Agent]
+    UserEnd[👤 User]
+
+    User -->|Request| MainAgent1
+    
+    MainAgent1 -->|1a. Analyze Code| SubAgent1A
+    MainAgent1 -->|1b. Check Tests| SubAgent1B
+    MainAgent1 -->|1c. Review Docs| SubAgent1C
+    
+    SubAgent1A -->|Results A| MainAgent2
+    SubAgent1B -->|Results B| MainAgent2
+    SubAgent1C -->|Results C| MainAgent2
+    
+    MainAgent2 -->|2a. Security Check| SubAgent2A
+    MainAgent2 -->|2b. Performance| SubAgent2B
+    
+    SubAgent2A -->|Results A| MainAgent3
+    SubAgent2B -->|Results B| MainAgent3
+    
+    MainAgent3 -->|Final Response| UserEnd
+
+    classDef userStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef mainStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef subStyle fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+
+    class User userStyle
+    class MainAgent1,MainAgent2,MainAgent3 mainStyle
+    class SubAgent1A,SubAgent1B,SubAgent1C,SubAgent2A,SubAgent2B subStyle
+                </div>
+
+                <h3>🤖 Meta Agents</h3>
+                <p><strong>Meta agents are agent builders</strong> - specialized agents that can dynamically create new subagents on-demand based on specific requirements.</p>
+
+                <div class="info-box" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h4>What They Do</h4>
+                    <ul>
+                        <li><strong>Core Function:</strong> Analyze requirements and generate new subagent configurations when needed specialists don't exist yet</li>
+                        <li><strong>Dynamic Creation:</strong> Instead of having pre-built subagents for every possible task, meta agents create them in real-time</li>
+                    </ul>
+                </div>
+
+                <pre><code># ~/.claude/agents/meta-builder.md
+---
+name: "meta-builder"
+type: "meta-agent"
+description: "Dynamically creates specialized subagents"
+---
+
+You analyze requirements and generate complete subagent configurations.
+
+## Process
+1. Understand the domain/task requirements
+2. Define subagent scope and expertise
+3. Generate complete config with proper structure
+4. Include appropriate triggers and output format
+5. Deploy and register the new subagent
+
+## Template Structure
+Always include: YAML frontmatter, role definition, input/output specs, 
+quality standards, and coordination rules.</code></pre>
+
+                <div class="info-box" style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h4>Benefits</h4>
+                    <ul>
+                        <li><strong>Infinite Scalability:</strong> Create any specialist needed without pre-planning</li>
+                        <li><strong>Adaptive Expertise:</strong> Agents evolve to meet new requirements</li>
+                        <li><strong>Reduced Maintenance:</strong> No need to pre-build every possible subagent</li>
+                        <li><strong>Context-Aware:</strong> New subagents tailored to specific project needs</li>
+                    </ul>
+                </div>
+
+                <div class="info-box" style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h4>Workflow Example</h4>
+                    <ol>
+                        <li><strong>User:</strong> "Analyze this React Native performance issue"</li>
+                        <li><strong>Main Agent:</strong> Checks for react-native-performance subagent</li>
+                        <li><strong>Meta Agent:</strong> Creates new subagent specialized in RN performance</li>
+                        <li><strong>New Subagent:</strong> Analyzes the specific performance issue</li>
+                        <li><strong>Results:</strong> Expert-level React Native performance recommendations</li>
+                    </ol>
+                </div>
+
+                <h2 id="changelogs-and-versions">📋 Changelogs and versions</h2>
+                <p>Track documentation updates and changes so developers can see what's new.  This section would be fleshed out if I had more time.</p>
+                
+                <h2 id="frequently-asked-questions">❓ Frequently Asked Questions section</h2>
+                <p>Common questions and solutions from the community. This section would be fleshed out if I had more time.</p>
+
+                <h2 id="interactive-learning-components">🎮 Interactive learning components</h2>
+                <p>Code playground or sandbox for hands-on practice.  This section would be fleshed out if I had more time.</p>
+                
+                <h2 id="guided-video-tutorial-series">🎥 Guided video tutorial series</h2>
+                <p>Video walkthroughs and tutorials. This section would be fleshed out if I had more time.</p>
+                
+                <h2 id="community-content">👥 Community content</h2>
+                <p>Shared resources or forums for discussions and learning. This section would be fleshed out if I had more time.</p>
+
+            </div>
+        </main>
+        
+        <button id="backToTop" class="back-to-top" title="Back to top">
+            ↑
+        </button>
+
+        <!-- Feedback Button -->
+        <button id="feedbackBtn" class="feedback-btn" title="Give feedback">
+            💬
+        </button>
+
+        <!-- Feedback Modal -->
+        <div id="feedbackModal" class="feedback-modal">
+            <div class="feedback-modal-content">
+                <div class="feedback-header">
+                    <h3>📝 Help us improve this documentation</h3>
+                    <button id="closeFeedback" class="close-btn">&times;</button>
+                </div>
+                
+                <form id="feedbackForm" action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="feedback-section">
+                        <label for="rating">How helpful was this documentation?</label>
+                        <div class="rating-buttons">
+                            <input type="radio" id="rating-5" name="rating" value="5">
+                            <label for="rating-5" class="rating-btn">🌟</label>
+                            
+                            <input type="radio" id="rating-4" name="rating" value="4">
+                            <label for="rating-4" class="rating-btn">😊</label>
+                            
+                            <input type="radio" id="rating-3" name="rating" value="3">
+                            <label for="rating-3" class="rating-btn">😐</label>
+                            
+                            <input type="radio" id="rating-2" name="rating" value="2">
+                            <label for="rating-2" class="rating-btn">😕</label>
+                            
+                            <input type="radio" id="rating-1" name="rating" value="1">
+                            <label for="rating-1" class="rating-btn">😞</label>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-section">
+                        <label for="feedback-type">What type of feedback?</label>
+                        <select id="feedback-type" name="feedback-type" required>
+                            <option value="">Select feedback type...</option>
+                            <option value="bug">🐛 Bug report</option>
+                            <option value="improvement">💡 Suggestion for improvement</option>
+                            <option value="missing">❓ Missing information</option>
+                            <option value="unclear">📝 Something unclear</option>
+                            <option value="positive">👍 General praise</option>
+                        </select>
+                    </div>
+                    
+                    <div class="feedback-section">
+                        <label for="feedback-message">Your feedback:</label>
+                        <textarea id="feedback-message" name="message" rows="4" placeholder="Tell us what we can improve or what you found helpful..." required></textarea>
+                    </div>
+                    
+                    <div class="feedback-section">
+                        <label for="feedback-email">Email (optional):</label>
+                        <input type="email" id="feedback-email" name="email" placeholder="your@email.com">
+                        <small>We'll only use this to follow up on your feedback if needed.</small>
+                    </div>
+                    
+                    <div class="feedback-actions">
+                        <button type="button" id="cancelFeedback" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Send Feedback</button>
+                    </div>
+                </form>
+                
+                <div id="feedbackSuccess" class="feedback-success" style="display: none;">
+                    <div class="success-content">
+                        <h4>🎉 Thank you for your feedback!</h4>
+                        <p>Your input helps us make this documentation better for everyone.</p>
+                        <button id="closeSuccess" class="btn-primary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Advanced Claude Code Docs. Built by Henry Yu.</p>
+        </footer>
+
+
+    </body>
+</html>

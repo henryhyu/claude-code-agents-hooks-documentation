@@ -1,0 +1,47 @@
+{
+  "name": "claude-code-agents-hooks-documentation-guide",
+  "version": "1.0.0",
+  "description": "GitHub Page that mirrors the style of the official Anthropic docs",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "install-deps": "npm install"
+  },
+  "keywords": [
+    "documentation",
+    "frontend",
+    "anthropic",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/dom": "^10.0.0",
+    "@testing-library/user-event": "^14.5.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.cjs"
+    ],
+    "testMatch": [
+      "<rootDir>/tests/basic.test.js"
+    ],
+    "collectCoverageFrom": [
+      "scripts.js",
+      "scripts-testable.cjs",
+      "!node_modules/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "html",
+      "lcov"
+    ],
+    "coverageDirectory": "coverage"
+  }
+}
