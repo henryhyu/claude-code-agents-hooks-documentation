@@ -24,6 +24,16 @@
           {
             "type": "command",
             "command": "echo 'Initiating comprehensive code review process'"
+          },
+          {
+            "type": "agent",
+            "agent": "security-reviewer",
+            "context": "{{tool_input}}"
+          },
+          {
+            "type": "agent",
+            "agent": "performance-reviewer",
+            "context": "{{tool_input}}"
           }
         ]
       },
@@ -44,6 +54,16 @@
           {
             "type": "command",
             "command": "if echo \\\"$TOOL_INPUT\\\" | grep -E '(src/api|src/components)'; then echo 'Documentation update required for API changes'; fi"
+          },
+          {
+            "type": "command",
+            "command": "if echo \"$TOOL_INPUT\" | grep -E '(src/api|src/components)'; then echo 'Auto-updating documentation...'; fi"
+          },
+          {
+            "type": "agent",
+            "agent": "docs-maintainer",
+            "context": "{{tool_input}}",
+            "condition": "matches(tool_input, 'src/api|src/components')"
           }
         ]
       }

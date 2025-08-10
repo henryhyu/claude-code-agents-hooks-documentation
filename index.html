@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthropic Style GitHub Page</title>
+    <title>Claude Code Agents and Hooks - Advanced Integration Patterns</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <!-- Prism.js for syntax highlighting -->
@@ -73,15 +73,15 @@
             <div class="main-content">
 
               <div class="info-box">
-                <h4>📋 Documentation Strategy</h4>
-                <p>For information about the strategic approach and methodology behind this documentation, see the <a href="documentation-strategy.html">Documentation Strategy guide</a>.</p>
+                <h4>📋 Documentation strategy</h4>
+                <p>For information about the strategic approach and methodology behind this documentation, see the <a href="documentation-strategy.html">Documentation strategy guide</a>.</p>
             </div>
 
             <div class="info-box">
-              <h4>See Also</h4>
+              <h4>📚 Learn more</h4>
               <ul>
-                  <li><a href="https://docs.anthropic.com/en/docs/claude-code">Official Claude Code Overview</a> - Complete feature documentation</li>
-                  <li><a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code Best Practices</a> - Best practices and recommendations</li>
+                  <li><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code overview</a></li>
+                  <li><a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code: Best practices for agentic coding</a></li>
               </ul>
           </div>
 
@@ -98,7 +98,7 @@
                   <p><strong>Start simple, build incrementally:</strong> The most successful implementations begin with one workflow that addresses a specific pain point, then expand based on demonstrated value.</p>
               </div>
                 
-                <h2 id="what-advanced-agents-and-hooks-do-for-you">🚀 What agents and hooks do for you</h2>
+                <h2 id="what-advanced-agents-and-hooks-do-for-you">🚀 What advanced agents and hooks do for you</h2>
                 <ul>
                     <li><strong>🛡️ Eliminate manual code reviews</strong>: Set up AI agents that catch security vulnerabilities, performance issues, and style problems automatically on every code change</li>
                     <li><strong>🧪 Write tests that create themselves</strong>: Implement test-driven development where your requirements turn into comprehensive test suites without manual work</li>
@@ -111,28 +111,30 @@
 
 
                 <h2 id="get-started-in-5-minutes">⏱️ Get started in 5 minutes </h2>
-                <p><strong>📋 Prerequisites:</strong> Basic Claude Code knowledge and Claude Code installed (<a href="https://docs.anthropic.com/en/docs/claude-code/setup">get Claude Code</a>)</p>
+                <p><strong>📋 Prerequisites:</strong> Basic Claude Code knowledge and Claude Code installed (<a href="https://docs.anthropic.com/en/docs/claude-code/setup">set up Claude Code</a>)</p>
                 
                 <div class="info-box warning">
-                    <p><strong>⚠️ Node.js Troubleshooting:</strong> You might run into Node.js issues regarding <code>ReferenceError: ReadableStream is not defined</code>. Try updating your Node version, but if that still does not work, a possible fix is running <code>source ~/.nvm/nvm.sh</code> before starting <code>claude</code>.</p>
+                    <p><strong>⚠️ Node.js troubleshooting:</strong> You might run into Node.js issues regarding <code>ReferenceError: ReadableStream is not defined</code>. Try updating your Node version, but if that still does not work, a possible fix is running <code>source ~/.nvm/nvm.sh</code> before starting <code>claude</code>.</p>
                 </div>
 
                 <div class="info-box">
-                    <h4>🤖 Understanding Agents</h4>
+                    <h4>🤖 Understanding agents</h4>
                     <p><strong>What they are:</strong> Specialized AI personas with specific expertise and behaviors defined in markdown configuration files.</p>
                     <p><strong>Purpose:</strong> Transform Claude from a general assistant into a domain expert (e.g., backend architect, security engineer, data scientist).</p>
                     <p><strong>How they work:</strong></p>
                     <ul>
                         <li>Stored as <code>.md</code> files in <code>~/.claude/agents/</code></li>
                         <li>Contain instructions, expertise, and behavioral guidelines</li>
+                        <li>Check your available agents on Claude Code via the <code>/agents</code> command</li>
+                        <li>Invoke agents via <code>claude -a [agent_name] -p [prompt_for_the_agent]</code></li>
                     </ul>
                 </div>
 
                 <div class="info-box">
-                    <h4>🪝 Understanding Hooks</h4>
+                    <h4>🪝 Understanding hooks</h4>
                     <p><strong>What they are:</strong> Automated scripts that trigger at specific points in the development workflow.</p>
                     <p><strong>Purpose:</strong> Integrate AI assistance seamlessly into your existing development process without manual intervention.</p>
-                    <p><strong>Common Hook Types:</strong></p>
+                    <p><strong>Common hook types:</strong></p>
                     <ul>
                         <li><strong>Pre-commit:</strong> Run code review before commits</li>
                         <li><strong>Post-merge:</strong> Update documentation after merges</li>
@@ -141,9 +143,10 @@
                     </ul>
                     <p><strong>How they work:</strong></p>
                     <ul>
-                        <li>Stored as executable scripts in <code>~/.claude/hooks/</code></li>
+                        <li>Stored in <code>~/.claude/settings.local.json</code> or <code>.claude/settings.json</code></li>
                         <li>Triggered automatically by git events or development tools</li>
                         <li>Can invoke specific agents for relevant tasks</li>
+                        <li>Check your available hooks on Claude Code via the <code>/hooks</code> command</li>
                     </ul>
                 </div>
 
@@ -151,15 +154,70 @@
                 <p>Set up automatic security reviews that run on every code change:</p>
 
                 <p><strong>1️⃣ Step 1:</strong> Create a security specialist agent</p>
-                <pre><code>mkdir -p ~/.claude/agents</code></pre>
+                <p>Launch Claude Code in your terminal by running <code>claude</code></p>
+                <p>Create <code>~/.claude/agents/security-reviewer.md</code> manually or follow the REPL interactive menu with <code>/agents</code>:</p>
 
-                <p>Create <code>~/.claude/agents/security-reviewer.md</code>:</p>
-                <pre><code>---
+                <pre><code>Create new agent                                                                                                    │
+│ Step 1: Choose location                                                                                           │
+│                                                                                                                   │
+│   1. Project (.claude/agents/)                                                                                    │
+│ ❯ 2. Personal (~/.claude/agents/)
+
+│ Step 2: Creation method                                                                                           │
+│                                                                                                                   │
+│ ❯ 1. Generate with Claude (recommended)                                                                           │
+│   2. Manual configuration
+
+│ Step 3: Describe what this agent should do and when it should be used (be comprehensive for best results)         │
+│                                                                                                                   │
+│ Expert in detecting and identifying security vulnerabilities in code changes. Provide specific remediation steps  │
+│ with code examples to mitigate.                                                                                   │ 
+
+│ Step 4: Select tools                                                                                              │
+│                                                                                                                   │
+│ ❯ [ Continue ]                                                                                                    │
+│ ────────────────────────────────────────                                                                          │
+│   ☒ All tools                                                                                                     │
+│   ☒ Read-only tools                                                                                               │
+│   ☒ Edit tools                                                                                                    │
+│   ☒ Execution tools                                                                                               │
+│ ────────────────────────────────────────                                                                          │
+│   [ Show advanced options ]                                                                                       │
+│                                                                                                                   │
+│ All tools selected
+
+│ Step 5: Select model                                                                                              │
+│ Model determines the agent's reasoning capabilities and speed.                                                    │
+│                                                                                                                   │
+│   1. Sonnet               Balanced performance - best for most agents✔                                            │
+│ ❯ 2. Haiku                Fast and efficient for simple tasks                                                     │
+│   3. Inherit from parent  Use the same model as the main conversation
+
+│ Step 6: Choose background color                                                                                   │
+│                                                                                                                   │
+│ Choose background color                                                                                           │
+│                                                                                                                   │
+│ ❯ Automatic color                                                                                                 │
+│     Red                                                                                                           │
+│     Blue                                                                                                          │
+│     Green                                                                                                         │
+│     Yellow                                                                                                        │
+│     Purple                                                                                                        │
+│     Orange                                                                                                        │
+│     Pink                                                                                                          │
+│     Cyan</code></pre>
+
+<p> Example output: </p>
+
+                <pre><code># ~/.claude/agents/security-reviewer.md 
+---
 name: "security-reviewer"
-description: "Security-focused code review specialist"
+description: "Use this agent when you need to analyze code changes for security vulnerabilities before committing or deploying."
+model: haiku
+color: yellow
 ---
 
-You specialize in identifying security vulnerabilities in code changes.
+You are a Senior Security Engineer with 15+ years of experience in application security, penetration testing, and secure code review. You specialize in identifying security vulnerabilities in code changes and providing actionable remediation guidance.
 
 ## Focus areas
 - Input validation and sanitization
@@ -171,24 +229,88 @@ You specialize in identifying security vulnerabilities in code changes.
 Provide specific remediation steps with code examples.</code></pre>
 
                 <div class="info-box">
-                    <h4>💡 Pro Tip: Subagent Integration</h4>
+                    <h4>💡 Pro tip: subagent integration</h4>
                     <p>This agent can also be used as a <strong>subagent</strong> that can be called by your primary agent. The <code>description</code> section is very important, as it communicates to your primary agent when it should call this agent.</p>
                     <p>In this case, when security-related prompts are detected, the primary agent will call this agent automatically. We'll talk more about subagents in the next section.
                     </p>
                 </div>
 
-                <p><strong>2️⃣ Step 2:</strong> Add automatic triggers</p>
-                <pre><code>claude
-# In REPL: /hooks</code></pre>
+                <p><strong>2️⃣ Step 2:</strong> Add simple automatic triggers</p>
+
+                <p>Run <code>/hooks</code> to open the hooks REPL interactive menu:</p>
+
+                <pre><code>Select hook event:                                                                                                │
+│ ❯ 1. PreToolUse - Before tool execution                                                                           │
+│   2. PostToolUse - After tool execution                                                                           │
+│   3. Notification - When notifications are sent                                                                   │
+│   4. UserPromptSubmit - When the user submits a prompt                                                            │
+│ ↓ 5. SessionStart - When a new session is started
+
+PreToolUse - Tool Matchers                                                                                          │
+│                                                                                                                   │
+│ Input to command is JSON of tool call arguments.                                                                  │
+│ Exit code 0 - stdout/stderr not shown                                                                             │
+│ Exit code 2 - show stderr to model and block tool call                                                            │
+│ Other exit codes - show stderr to user only but continue with tool call                                           │
+│                                                                                                                   │
+│ ❯ 1. + Add new matcher…                                                                                           │
+│   2. [Local] Bash        1 hook                                                                                   │
+│   3. [Local] Edit|Write  4 hooks                                                                                  │
+
+Possible matcher values for field tool_name:                                                                        │
+│                                                                                                                   │
+│ Task, Bash, Glob, Grep, LS, ExitPlanMode, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, WebSearch,        │
+│ BashOutput, KillBash                                                                                              │
+│                                                                                                                   │
+│ Tool matcher:                                                                                                     │
+│ ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
+│ │ Edit|Write                                                                                                    │ │
+│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│                                                                                                                   │
+│ Example Matchers:                                                                                                 │
+│ • Write (single tool)                                                                                             │
+│ • Write|Edit|MultiEdit (multiple tools)                                                                           │
+│ • Web.* (regex pattern)
+
+Event: PreToolUse - Before tool execution                                                                           │
+│                                                                                                                   │
+│ Input to command is JSON of tool call arguments.                                                                  │
+│ Exit code 0 - stdout/stderr not shown                                                                             │
+│ Exit code 2 - show stderr to model and block tool call                                                            │
+│ Other exit codes - show stderr to user only but continue with tool call                                           │
+│                                                                                                                   │
+│ Matcher: Edit|Write                                                                                               │
+│                                                                                                                   │
+│ Command:                                                                                                          │
+│                                                                                                                   │
+│ ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
+│ │ echo "Running security review on code changes"                                                                │ │
+│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│                                                                                                                   │
+│ Examples:                                                                                                         │
+│ • jq -r '.tool_input.file_path | select(endswith(".go"))' | xargs -r gofmt -w                                     │
+│ • jq -r '"\(.tool_input.command) - \(.tool_input.description // "No description")"' >>                            │
+│ ~/.claude/bash-command-log.txt                                                                                    │
+│ • /usr/local/bin/security_check.sh                                                                                │
+│ • python3 ~/hooks/validate_changes.py                                                                             │
+
+Save hook configuration                                                                                             │
+│                                                                                                                   │
+│   Event: PreToolUse - Before tool execution                                                                       │
+│   Matcher: Edit|Write                                                                                             │
+│   Command: echo "Running security review on code changes"                                                         │
+│                                                                                                                   │
+│ Where should this hook be saved?                                                                                  │
+│                                                                                                                   │
+│   1. Project settings (local)  Saved in .claude/settings.local.json                                               │
+│   2. Project settings          Checked in at .claude/settings.json                                                │
+│ ❯ 3. User settings             Saved in at ~/.claude/settings.json</code></pre>
+
                 
-                <ol>
-                    <li>Select <strong>PreToolUse</strong> → Add matcher <code>Edit|Write</code> → Add command:</li>
-                </ol>
+                <p>Select <strong>PreToolUse</strong> → Add matcher <code>Edit|Write</code> → Add command:</p>
                 <pre><code>echo "Running security review on code changes"</code></pre>
                 
-                <ol start="2">
-                    <li>Save to <strong>User settings</strong></li>
-                </ol>
+                <p>Save to <strong>User settings</strong></p>
 
                 <p><strong>3️⃣ Step 3:</strong> Test it</p>
                 <pre><code>claude -a security-reviewer -p "Review this login function for security issues"</code></pre>
@@ -205,6 +327,8 @@ Provide specific remediation steps with code examples.</code></pre>
 ---
 name: "test-engineer"
 description: "Test design and coverage analysis"
+model: sonnet
+color: yellow
 ---
 
 You design comprehensive test suites and analyze coverage gaps.
@@ -217,52 +341,56 @@ You design comprehensive test suites and analyze coverage gaps.
 
 Prioritize test quality over quantity.</code></pre>
 
-                <h3>Agent teams that work together (Primary agent + Subagents)</h3>
+                <h3>Agent teams that work together (primary agent + subagents)</h3>
 
-                <div class="tip-box" style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #2196F3;">
-                    <strong>📚 Official Reference:</strong> For complete subagent implementation details, refer to the <a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" target="_blank" style="color: #1976D2; text-decoration: underline;">official documentation on subagents</a>.
+                
+                <div class="info-box">
+                    <h4>📚 Learn more</h4>
+                    <ul>
+                        <li><a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" target="_blank">Subagents</a></li>
+                    </ul>
                 </div>
                 
                 <p>Coordinate multiple specialists for complex projects:</p>
 
                 <div class="mermaid">
 graph TB
-    Dev[Developer] --> CC[Claude Code Session]
-    CC --> H1[SessionStart Hook]
-    H1 --> A1[Primary Agent]
+    Dev[User] --> CC[Claude Code session]
+    CC --> H1[SessionStart hook]
+    H1 --> A1[Primary agent]
     
-    A1 --> H2[PreToolUse Hook]
-    H2 --> Tool[Tool Execution]
-    Tool --> H3[PostToolUse Hook]
+    A1 --> H2[PreToolUse hook]
+    H2 --> Tool[Tool execution]
+    Tool --> H3[PostToolUse hook]
     
     A1 --> A2[Subagent]
-    A2 --> H4[SubagentStop Hook]
+    A2 --> H4[SubagentStop hook]
     
-    H3 --> H5[Notification Hook]
-    H5 --> H6[Stop Hook]
+    H3 --> H5[Notification hook]
+    H5 --> H6[Stop hook]
                 </div>
 
                 <p>This ecosystem enables sophisticated workflows where multiple agents collaborate, hooks provide governance and automation, and the entire system maintains coherent state management. This essentially means the agents running from the coordinator are subagents. 
-                  What's extremely important is how you write your prompt for the main agent as well as the prompts for the subagent.</p>
+                  What's extremely important is how you write your prompt for the primary agent as well as the prompts for the subagent.</p>
 
 
                 <div class="info-box">
-                    <h4>🎯 Subagent Design Principles</h4>
+                    <h4>🎯 Subagent design principles</h4>
                     
-                    <h5>Core Distinctions compared to main agents:</h5>
+                    <h5>Core distinctions compared to primary agents:</h5>
                     <ul>
-                        <li><strong>No Direct User Interaction:</strong> Subagents only communicate with the main agent</li>
-                        <li><strong>Structured Output:</strong> Must return parseable data (JSON/XML/structured text)</li>
-                        <li><strong>Narrow Specialization:</strong> Handle one specific task very well</li>
-                        <li><strong>Integration Points:</strong> Define how they coordinate with main agents</li>
+                        <li><strong>No direct user interaction:</strong> Subagents only communicate with the primary agent</li>
+                        <li><strong>Structured output:</strong> Must return parseable data (JSON/XML/structured text)</li>
+                        <li><strong>Narrow specialization:</strong> Handle one specific task very well</li>
+                        <li><strong>Integration points:</strong> Define how they coordinate with primary agents</li>
                     </ul>
                     
-                    <h5>Critical Sections:</h5>
+                    <h5>Critical sections:</h5>
                     <ul>
-                        <li><strong>Input Specification:</strong> What data the main agent must provide</li>
-                        <li><strong>Output Format:</strong> Exact structure of returned results</li>
-                        <li><strong>Trigger Keywords:</strong> When the main agent should invoke this subagent</li>
-                        <li><strong>Error Handling:</strong> How to communicate failures back to main agent</li>
+                        <li><strong>Input specification:</strong> What data the primary agent must provide</li>
+                        <li><strong>Output format:</strong> Exact structure of returned results</li>
+                        <li><strong>Trigger keywords:</strong> When the primary agent should invoke this subagent</li>
+                        <li><strong>Error handling:</strong> How to communicate failures back to primary agent</li>
                     </ul>
                 </div>
 
@@ -318,7 +446,7 @@ Analyze code and return structured test recommendations following TDD principles
 ## Rules
 - Return markdown only, no conversation
 - Focus on test quality over quantity
-- Flag complex cases for main agent
+- Flag complex cases for primary agent
 - Complete within 30 seconds</code></pre>
 
 <p><strong>🎯 Agents calling subagents</strong>:</p>
@@ -349,26 +477,26 @@ You coordinate work between specialist agents for complex tasks.
                 <div class="mermaid">
 graph TD
     User[👤 User] 
-    MainAgent[🤖 Coordinator Agent]
-    SubAgent1[🔧 Security Reviewer Agent]
-    SubAgent2[📊 Test Engineer Agent]
-    SubAgent3[🔍 Docs Maintainer Agent]
+    PrimaryAgent[🤖 Coordinator agent]
+    SubAgent1[🔧 Security reviewer agent]
+    SubAgent2[📊 Test engineer agent]
+    SubAgent3[🔍 Docs maintainer agent]
 
-    User -->|Request| MainAgent
-    MainAgent --> SubAgent1
-    MainAgent --> SubAgent2
-    MainAgent --> SubAgent3
-    SubAgent1 --> MainAgent
-    SubAgent2 --> MainAgent
-    SubAgent3 --> MainAgent
-    MainAgent -->|Response| User
+    User -->|Request| PrimaryAgent
+    PrimaryAgent --> SubAgent1
+    PrimaryAgent --> SubAgent2
+    PrimaryAgent --> SubAgent3
+    SubAgent1 --> PrimaryAgent
+    SubAgent2 --> PrimaryAgent
+    SubAgent3 --> PrimaryAgent
+    PrimaryAgent -->|Response| User
     
     classDef userStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef mainAgentStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef primaryAgentStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     classDef subAgentStyle fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
     
     class User userStyle
-    class MainAgent mainAgentStyle
+    class PrimaryAgent primaryAgentStyle
     class SubAgent1,SubAgent2,SubAgent3 subAgentStyle
                 </div>
 
@@ -441,7 +569,7 @@ claude -a docs-maintainer -p "Update documentation for this feature"</code></pre
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Activates when Claude is about to use the "Bash" tool</p>
                     <p><strong>Action:</strong> Runs a Python safety check that:</p>
                     <ol>
@@ -475,11 +603,11 @@ claude -a docs-maintainer -p "Update documentation for this feature"</code></pre
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Runs after Claude uses "Edit" or "Write" tools</p>
                     <p><strong>Action:</strong> Automatically formats JavaScript/TypeScript files using Prettier</p>
                     
-                    <h5>The Command Breakdown</h5>
+                    <h5>The command breakdown</h5>
                     <pre><code>if [[ "$TOOL_INPUT" == *.ts || "$TOOL_INPUT" == *.js ]]; then 
     npx prettier --write "$TOOL_INPUT"
 fi</code></pre>
@@ -510,11 +638,11 @@ fi</code></pre>
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Activates when Claude uses "Edit" or "Write" tools</p>
                     <p><strong>Action:</strong> Shows a macOS system notification using AppleScript</p>
                     
-                    <h5>The Command Breakdown</h5>
+                    <h5>The command breakdown</h5>
                     <pre><code>osascript -e 'display notification "Claude Code needs attention" with title "Development Alert"'</code></pre>
                     
                     <p><strong>Components:</strong></p>
@@ -525,7 +653,7 @@ fi</code></pre>
                         <li><strong>Title:</strong> "Development Alert"</li>
                     </ul>
                     
-                    <h5>What You'd See</h5>
+                    <h5>What you'd see</h5>
                     <p>A macOS notification popup would appear showing:</p>
                     <div style="background: #f5f5f5; padding: 10px; border-radius: 5px; font-family: monospace;">
                         🔔 <strong>Development Alert</strong><br>
@@ -553,11 +681,11 @@ fi</code></pre>
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Runs before Claude uses the "Edit" tool</p>
                     <p><strong>Action:</strong> Scans the file path/content and blocks access to sensitive files</p>
                     
-                    <h5>The Command Breakdown</h5>
+                    <h5>The command breakdown</h5>
                     <pre><code>if echo "$TOOL_INPUT" | grep -E '(\\.env|\\.git/|key|secret)'; then 
     echo 'Blocked: Sensitive file access' >&2
     exit 2
@@ -570,8 +698,8 @@ fi</code></pre>
                         <li>If not found: Continue normally</li>
                     </ol>
                     
-                    <h5>What Gets Blocked</h5>
-                    <p><strong>❌ Blocked Patterns:</strong></p>
+                    <h5>What gets blocked</h5>
+                    <p><strong>❌ Blocked patterns:</strong></p>
                     <ul>
                         <li><code>.env</code> files (environment variables/secrets)</li>
                         <li><code>.git/</code> directory (Git repository internals)</li>
@@ -600,11 +728,11 @@ fi</code></pre>
                 <p>This hook acts as a documentation reminder system that alerts you when important code areas are modified.</p>
                 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Runs after Claude uses "Edit" or "Write" tools</p>
                     <p><strong>Action:</strong> Checks if changes were made to critical directories and reminds about documentation updates</p>
                     
-                    <h5>The Command Breakdown</h5>
+                    <h5>The command breakdown</h5>
                     <pre><code>if echo "$TOOL_INPUT" | grep -E '(src/api|src/components)'; then 
     echo 'Documentation update required for API changes'
 fi</code></pre>
@@ -616,8 +744,8 @@ fi</code></pre>
                         <li>If no match: Silent (no output)</li>
                     </ol>
                     
-                    <h5>What Triggers the Reminder</h5>
-                    <p><strong>📝 Triggers Alert:</strong></p>
+                    <h5>What triggers the reminder</h5>
+                    <p><strong>📝 Triggers alert:</strong></p>
                     <ul>
                         <li><code>src/api/users.js</code> → "Documentation update required for API changes"</li>
                         <li><code>src/components/Header.tsx</code> → "Documentation update required for API changes"</li>
@@ -625,7 +753,7 @@ fi</code></pre>
                         <li><code>src/components/forms/ContactForm.vue</code> → "Documentation update required for API changes"</li>
                     </ul>
                     
-                    <p><strong>🔇 No Alert:</strong></p>
+                    <p><strong>🔇 No alert:</strong></p>
                     <ul>
                         <li><code>src/utils/helpers.js</code> → Silent</li>
                         <li><code>tests/unit.test.js</code> → Silent</li>
@@ -720,7 +848,7 @@ Focus on changes that will have measurable impact on user experience.</code></pr
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <ol>
                         <li>Claude prepares to edit code</li>
                         <li>Hook system intercepts (PreToolUse)</li>
@@ -729,11 +857,11 @@ Focus on changes that will have measurable impact on user experience.</code></pr
                         <li>If no blocking issues, original edit proceeds</li>
                     </ol>
                     
-                    <h5>Expected Output</h5>
+                    <h5>Expected output</h5>
                     <p>When Claude edits a file, you'd get reports like:</p>
                     
                     <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                        <p><strong>Security Review:</strong></p>
+                        <p><strong>Security review:</strong></p>
                         <div style="color: #d73a49; font-weight: bold;">🛡️ SECURITY FINDINGS:</div>
                         <ul style="margin: 5px 0;">
                             <li><strong>Severity:</strong> High</li>
@@ -742,11 +870,11 @@ Focus on changes that will have measurable impact on user experience.</code></pr
                             <li><strong>Fix:</strong> Use parameterized queries</li>
                         </ul>
                         
-                        <p style="margin-top: 15px;"><strong>Performance Review:</strong></p>
+                        <p style="margin-top: 15px;"><strong>Performance review:</strong></p>
                         <div style="color: #f57c00; font-weight: bold;">⚡ PERFORMANCE FINDINGS:</div>
                         <ul style="margin: 5px 0;">
                             <li><strong>Impact:</strong> 200ms delay on user search</li>
-                            <li><strong>Root Cause:</strong> N+1 query pattern in user lookup</li>
+                            <li><strong>Root cause:</strong> N+1 query pattern in user lookup</li>
                             <li><strong>Solution:</strong> Add eager loading with joins</li>
                         </ul>
                     </div>
@@ -818,11 +946,11 @@ Always start with the failing test. Never write implementation code first.</code
 
                 <h3>📝 Documentation that stays current and up to date</h3>
                 <div class="info-box">
-                  <h4>📚 The Documentation Challenge</h4>
-                  <p><strong>A major pain point:</strong> Documentation gets outdated very fast. This creates a perfect opportunity and use case for <strong>Agents and Hooks to auto-update or generate documentation</strong>.</p>
+                  <h4>📚 Never worry about outdated docs again</h4>
+                  <p><strong>A major pain point:</strong> Documentation gets outdated very fast. This creates a perfect opportunity and use case for <strong>agents and hooks to auto-update or generate documentation</strong>.</p>
                 </div>
                 
-                <p><strong>Never worry about outdated docs again:</strong></p>
+                <p><strong>Agent that automatically maintains and updates project documentation:</strong></p>
 
                 <pre><code># ~/.claude/agents/docs-maintainer.md
 ---
@@ -865,7 +993,7 @@ Focus on keeping documentation aligned with code reality.</code></pre>
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p>Hook detects change in <code>src/api/</code> → <code>docs-maintainer</code> agent automatically:</p>
                     <ul>
                         <li>Updates API docs: <code>GET /users?page=1&limit=10&role=admin</code></li>
@@ -875,8 +1003,8 @@ Focus on keeping documentation aligned with code reality.</code></pre>
                         <li>Validates example responses</li>
                     </ul>
                     
-                    <h5>🎯 What Gets Auto-Updated</h5>
-                    <p><strong>API Changes (<code>src/api/</code>):</strong></p>
+                    <h5>🎯 What gets auto-updated</h5>
+                    <p><strong>API changes (<code>src/api/</code>):</strong></p>
                     <ul>
                         <li>Endpoint documentation</li>
                         <li>Parameter descriptions</li>
@@ -885,7 +1013,7 @@ Focus on keeping documentation aligned with code reality.</code></pre>
                         <li>Rate limiting info</li>
                     </ul>
                     
-                    <p><strong>Component Changes (<code>src/components/</code>):</strong></p>
+                    <p><strong>Component changes (<code>src/components/</code>):</strong></p>
                     <ul>
                         <li>Props documentation</li>
                         <li>Usage examples</li>
@@ -894,7 +1022,7 @@ Focus on keeping documentation aligned with code reality.</code></pre>
                         <li>Breaking change notes</li>
                     </ul>
                     
-                    <h5>🔧 Intelligent Context Passing</h5>
+                    <h5>🔧 Intelligent context passing</h5>
                     <p><code>"context": "{{tool_input}}"</code></p>
                     <p><strong>The agent receives:</strong></p>
                     <ul>
@@ -909,27 +1037,27 @@ Focus on keeping documentation aligned with code reality.</code></pre>
 
                 <div class="mermaid">
 graph TB
-    subgraph Security Layer 1
-        PTU[PreToolUse Hook] --> SecScan[Security Scanner]
-        SecScan --> Blocklist[Dangerous Operation Filter]
+    subgraph Security layer 1
+        PTU[PreToolUse hook] --> SecScan[Security scanner]
+        SecScan --> Blocklist[Dangerous operation filter]
         Blocklist --> Allow{Allow?}
-        Allow -->|No| Block[Block Execution]
+        Allow -->|No| Block[Block execution]
         Allow -->|Yes| L2[Layer 2]
     end
     
-    subgraph Security Layer 2
-        L2 --> SecAgent[Security Agent]
-        SecAgent --> CodeAnalysis[Deep Code Analysis]
-        CodeAnalysis --> VulnCheck[Vulnerability Assessment]
+    subgraph Security layer 2
+        L2 --> SecAgent[Security agent]
+        SecAgent --> CodeAnalysis[Deep code analysis]
+        CodeAnalysis --> VulnCheck[Vulnerability assessment]
         VulnCheck --> Approve{Approve?}
-        Approve -->|No| Escalate[Human Review]
-        Approve -->|Yes| Execute[Execute with Monitoring]
+        Approve -->|No| Escalate[Human review]
+        Approve -->|Yes| Execute[Execute with monitoring]
     end
     
     subgraph Monitoring
-        Execute --> Monitor[Continuous Monitoring]
-        Monitor --> Alert[Alert on Anomalies]
-        Alert --> Audit[Audit Trail]
+        Execute --> Monitor[Continuous monitoring]
+        Monitor --> Alert[Alert on anomalies]
+        Alert --> Audit[Audit trail]
     end
     
     style Block fill:#ffebee
@@ -958,7 +1086,7 @@ graph TB
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>⚡ Layer 1 Characteristics</h4>
+                    <h4>⚡ Layer 1 characteristics</h4>
                     <ul>
                         <li><strong>Purpose:</strong> Lightning-fast prevention of obviously dangerous commands</li>
                         <li><strong>When:</strong> Before ANY bash command executes</li>
@@ -986,7 +1114,7 @@ You perform comprehensive security analysis of code changes.
 Escalate to human review when uncertain about security implications.</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 Layer 2 Characteristics</h4>
+                    <h4>🔍 Layer 2 characteristics</h4>
                     <ul>
                         <li><strong>Purpose:</strong> Thorough security review of code logic and patterns</li>
                         <li><strong>When:</strong> After code changes (or on-demand)</li>
@@ -994,7 +1122,7 @@ Escalate to human review when uncertain about security implications.</code></pre
                         <li><strong>Scope:</strong> All code changes, logic flows, architecture</li>
                     </ul>
                     
-                    <h5>Example Workflow</h5>
+                    <h5>Example workflow</h5>
                     <ol>
                         <li><strong>Developer requests:</strong> "Delete old log files and update user auth"</li>
                         <li><strong>Layer 1:</strong> Scans bash commands for dangerous patterns
@@ -1054,7 +1182,10 @@ You implement detailed plans with focus on code quality and best practices.
 
 Focus on implementation quality and tactical problem-solving.</code></pre>
 
-                <p><strong>Why this works:</strong> Planning requires different thinking than implementation. Separate agents optimize for each phase.</p>
+                <div class="info-box">
+                    <h4>💡 Why this works</h4>
+                    <p>Planning requires different thinking than implementation. Separate agents optimize for each phase.</p>
+                </div>
 
                 <p>These are some examples of patterns to get you started. There are of course many more complex patterns you can build on top of this.</p>
 
@@ -1064,9 +1195,13 @@ Focus on implementation quality and tactical problem-solving.</code></pre>
                 <p><strong>Connect to your entire development ecosystem</strong> through MCP (Model Context Protocol):</p>
                 
                 <div class="info-box">
-                    <h4>📚 Learn More About MCP</h4>
-                    <p>For complete MCP documentation, setup guides, and available integrations, see the <a href="https://docs.anthropic.com/en/docs/mcp" target="_blank">official MCP documentation</a>.</p>
+                    <h4>📚 Learn more</h4>
+                    <ul>
+                        <li><a href="https://docs.anthropic.com/en/docs/mcp" target="_blank">Model Context Protocol (MCP)</a></li>
+                    </ul>
                 </div>
+
+                <p>This hook provides MCP (Model Context Protocol) operation monitoring with security awareness for external tool usage.</p>
 
                 <pre><code>{
   "hooks": {
@@ -1092,17 +1227,15 @@ Focus on implementation quality and tactical problem-solving.</code></pre>
     ]
   }
 }</code></pre>
-
-                <p>This hook provides MCP (Model Context Protocol) operation monitoring with security awareness for external tool usage.</p>
                 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Runs before Claude uses specific MCP tools</p>
                     <p><strong>Action:</strong> Logs and verifies operations involving GitHub and file system access</p>
                     
-                    <h5>The Two Matchers Breakdown</h5>
+                    <h5>The two matchers breakdown</h5>
                     <ol>
-                        <li><strong>GitHub Operations Monitor</strong>
+                        <li><strong>GitHub operations monitor</strong>
                             <ul>
                                 <li><strong>Matcher:</strong> <code>"mcp__github__*"</code></li>
                                 <li><strong>Catches:</strong> Any GitHub MCP tool usage (<code>mcp__github__create_repo</code>, <code>mcp__github__push</code>, etc.)</li>
@@ -1110,7 +1243,7 @@ Focus on implementation quality and tactical problem-solving.</code></pre>
                                 <li><strong>Purpose:</strong> Audit trail for repository operations</li>
                             </ul>
                         </li>
-                        <li><strong>File Write Monitor</strong>
+                        <li><strong>File write monitor</strong>
                             <ul>
                                 <li><strong>Matcher:</strong> <code>"mcp__filesystem__write_file"</code></li>
                                 <li><strong>Catches:</strong> Specific file write operations through MCP filesystem tools</li>
@@ -1120,20 +1253,20 @@ Focus on implementation quality and tactical problem-solving.</code></pre>
                         </li>
                     </ol>
                     
-                    <h5>🔍 What Gets Monitored</h5>
-                    <p><strong>✅ GitHub Operations Detected:</strong></p>
+                    <h5>🔍 What gets monitored</h5>
+                    <p><strong>✅ GitHub operations detected:</strong></p>
                     <ul>
                         <li><code>mcp__github__create_issue</code> → "GitHub operation detected..."</li>
                         <li><code>mcp__github__commit_changes</code> → "GitHub operation detected..."</li>
                         <li><code>mcp__github__create_pr</code> → "GitHub operation detected..."</li>
                     </ul>
                     
-                    <p><strong>✅ File Operations Detected:</strong></p>
+                    <p><strong>✅ File operations detected:</strong></p>
                     <ul>
                         <li><code>mcp__filesystem__write_file</code> → "File write operation - running security check"</li>
                     </ul>
                     
-                    <p><strong>❌ Not Monitored:</strong></p>
+                    <p><strong>❌ Not monitored:</strong></p>
                     <ul>
                         <li><code>mcp__filesystem__read_file</code> (only write operations)</li>
                         <li><code>mcp__database__query</code> (different MCP tool)</li>
@@ -1168,11 +1301,11 @@ Focus on implementation quality and tactical problem-solving.</code></pre>
 }</code></pre>
 
                 <div class="info-box">
-                    <h4>🔍 What It Does</h4>
+                    <h4>🔍 What it does</h4>
                     <p><strong>Trigger:</strong> Runs after Claude uses "Edit" or "Write" tools</p>
                     <p><strong>Action:</strong> Automatically commits the changed file to Git with a timestamped message</p>
                     
-                    <h5>The Command Breakdown</h5>
+                    <h5>The command breakdown</h5>
                     <pre><code>git add "$TOOL_INPUT" && 
 git commit -m "Auto-commit: $(basename "$TOOL_INPUT") - $(date '+%Y-%m-%d %H:%M')"</code></pre>
                     
@@ -1233,7 +1366,7 @@ claude
 
                 <h2 id="troubleshooting-and-debugging">🐛 Troubleshooting and debugging <em>(10 minutes)</em></h2>
 
-                <h3>❌ Agent not responding or giving unexpected results:</h3>
+                <h3>❌ Agent not responding or giving unexpected results</h3>
                 <pre><code># Check if agent files exist
 ls ~/.claude/agents/
 ls .claude/agents/
@@ -1253,9 +1386,9 @@ claude --verbose</code></pre>
                     <li><strong>File permission errors:</strong> Ensure Claude Code can read your agent configuration files</li>
                 </ul>
 
-                <h3>🔧 My hook isn't working - start here:</h3>
+                <h3>🔧 Hook isn't working</h3>
 
-                <p><strong>1. Is your hook configuration valid?</strong></p>
+                <p><strong>1️⃣ Step 1:</strong> Is your hook configuration valid?</p>
                 <pre><code># Check if hooks appear in configuration
 claude
 # In REPL: /hooks</code></pre>
@@ -1264,7 +1397,7 @@ claude
                     <li>❌ <strong>Hooks missing or error</strong> → Fix JSON syntax in settings file</li>
                 </ul>
 
-                <p><strong>2. Is the hook executing at all?</strong></p>
+                <p><strong>2️⃣ Step 2:</strong> Is the hook executing at all?</p>
                 <pre><code># Run with verbose logging
 claude --verbose
 # Press Ctrl-R during session to see hook execution</code></pre>
@@ -1273,7 +1406,7 @@ claude --verbose
                     <li>❌ <strong>Hook never executes</strong> → Check matcher pattern (step 4)</li>
                 </ul>
 
-                <p><strong>3. Is the hook command working?</strong></p>
+                <p><strong>3️⃣ Step 3:</strong> Is the hook command working?</p>
                 <pre><code># Test the command manually
 echo '{"tool_input":{"command":"ls"}}' | your-hook-command</code></pre>
                 <ul>
@@ -1281,7 +1414,7 @@ echo '{"tool_input":{"command":"ls"}}' | your-hook-command</code></pre>
                     <li>❌ <strong>Command fails manually</strong> → Fix the command syntax</li>
                 </ul>
 
-                <p><strong>4. Is your matcher pattern correct?</strong></p>
+                <p><strong>4️⃣ Step 4:</strong> Is your matcher pattern correct?</p>
                 <ul>
                     <li><code>"Bash"</code> - matches only Bash tool</li>
                     <li><code>"Edit|Write"</code> - matches Edit OR Write tools</li>
@@ -1289,38 +1422,38 @@ echo '{"tool_input":{"command":"ls"}}' | your-hook-command</code></pre>
                     <li>Case-sensitive matching required</li>
                 </ul>
 
-                <p><strong>5. Are there timeout or permission issues?</strong></p>
+                <p><strong>5️⃣ Step 5:</strong> Are there timeout or permission issues?</p>
                 <pre><code># Check if command completes within 60 seconds
 timeout 60s your-hook-command
 
 # Verify file permissions
 ls -la .claude/hooks/your-script.sh</code></pre>
 
-                <p><strong>6. Are environment variables available?</strong></p>
+                <p><strong>6️⃣ Step 6:</strong> Are environment variables available?</p>
                 <pre><code># Add debug output to your hook
 echo "TOOL_INPUT: $TOOL_INPUT" >&2
 echo "Session ID: $session_id" >&2</code></pre>
 
-                <p><strong>7. Is the hook in the right location?</strong></p>
+                <p><strong>7️⃣ Step 7:</strong> Is the hook in the right location?</p>
                 <ul>
                     <li><code>~/.claude/settings.json</code> - User-wide hooks</li>
                     <li><code>.claude/settings.json</code> - Project-wide hooks (committed)</li>
                     <li><code>.claude/settings.local.json</code> - Local project hooks (not committed)</li>
                 </ul>
 
-                <p><strong>8. Common JSON syntax errors:</strong></p>
+                <p><strong>8️⃣ Step 8:</strong> Common JSON syntax errors:</p>
                 <pre><code>❌ Wrong: "PreToolUse": { "Bash": [...] }
 ✅ Correct: "PreToolUse": [{ "matcher": "Bash", "hooks": [...] }]
 
 ❌ Wrong: Unescaped quotes in command
 ✅ Correct: Properly escaped quotes \"like this\"</code></pre>
 
-                <p><strong>9. Still not working?</strong></p>
-                <ol>
+                <p><strong>9️⃣ Step 9:</strong> Still not working?</p>
+                <ul>
                     <li>Restart Claude Code session</li>
                     <li>Check logs in transcript mode (Ctrl-R)</li>
                     <li>Test with minimal hook first:</li>
-                </ol>
+                </ul>
                 <pre><code>{
   "hooks": {
     "PreToolUse": [
@@ -1337,8 +1470,7 @@ echo "Session ID: $session_id" >&2</code></pre>
   }
 }</code></pre>
 
-                
-                    <h4>10. Get help:</h4>
+<p><strong>1️⃣0️⃣ Step 10:</strong> Get help</p>
                     <ul>
                         <li>Check <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Hooks Reference</a> for latest syntax</li>
                         <li>Use <code>/hooks</code> interactive menu to avoid JSON errors</li>
@@ -1351,13 +1483,13 @@ echo "Session ID: $session_id" >&2</code></pre>
 claude --verbose -p "your request"</code></pre>
 
                 <p><strong>Speed optimization checklist:</strong></p>
-                <ul>
-                    <li>☐ Hook execution under 5 seconds when possible</li>
-                    <li>☐ Agents have focused, specific roles</li>
-                    <li>☐ Context windows under token limits</li>
-                    <li>☐ Expensive operations run asynchronously</li>
-                    <li>☐ Configuration loaded through REPL</li>
-                </ul>
+                <div class="checklist">
+                    <label><input type="checkbox"> Hook execution under 5 seconds when possible</label><br>
+                    <label><input type="checkbox"> Agents have focused, specific roles</label><br>
+                    <label><input type="checkbox"> Context windows under token limits</label><br>
+                    <label><input type="checkbox"> Expensive operations run asynchronously</label><br>
+                    <label><input type="checkbox"> Configuration loaded through REPL</label>
+                </div>
 
                 <h2 id="security-and-best-practices">🔒 Security and best practices <em>(5 minutes)</em></h2>
 
@@ -1403,86 +1535,86 @@ git commit -m "Update agent configurations for project workflow"</code></pre>
 
                 <p><strong>Hook</strong>: A shell command that executes automatically at specific points in Claude Code's lifecycle (before/after tool use, on notifications, etc.).</p>
 
-                <p><strong>Hook Event</strong>: The trigger point when a hook executes - PreToolUse, PostToolUse, Notification, Stop, UserPromptSubmit, SessionStart, or SubagentStop.</p>
+                <p><strong>Hook event</strong>: The trigger point when a hook executes - PreToolUse, PostToolUse, Notification, Stop, UserPromptSubmit, SessionStart, or SubagentStop.</p>
 
                 <p><strong>Matcher</strong>: A pattern that determines which tools trigger a hook. Examples: "Bash", "Edit|Write", "*" (all tools), or "" (empty for events without tools).</p>
 
                 <p><strong>MCP (Model Context Protocol)</strong>: A standard protocol that allows Claude Code to integrate with external tools and services like GitHub, filesystems, and databases.</p>
 
-                <p><strong>Project Memory (CLAUDE.md)</strong>: A markdown file containing project-specific context, commands, and standards that agents automatically load for context.</p>
+                <p><strong>Project memory (CLAUDE.md)</strong>: A markdown file containing project-specific context, commands, and standards that agents automatically load for context.</p>
 
                 <p><strong>Subagent</strong>: A specialized agent that operates independently with its own context window, invoked by the main Claude session for specific tasks.</p>
 
                 <p><strong>Tool</strong>: A capability Claude Code can use to interact with your system - Read, Write, Edit, Bash, WebSearch, etc. Tools can be restricted by permissions.</p>
 
-                <p><strong>Tool Input</strong>: The JSON data containing parameters for a tool execution, available to hooks as environment variables.</p>
+                <p><strong>Tool input</strong>: The JSON data containing parameters for a tool execution, available to hooks as environment variables.</p>
 
-                <p><strong>Tool Response</strong>: The JSON data containing results from a completed tool execution, available to PostToolUse hooks.</p>
+                <p><strong>Tool response</strong>: The JSON data containing results from a completed tool execution, available to PostToolUse hooks.</p>
 
-                <p><strong>Transcript Mode</strong>: A debugging mode (Ctrl-R) that shows detailed hook execution, commands run, and system interactions.</p>
+                <p><strong>Transcript mode</strong>: A debugging mode (Ctrl-R) that shows detailed hook execution, commands run, and system interactions.</p>
 
-                <p><strong>YAML Frontmatter</strong>: The configuration section at the top of agent files, containing name, description, tools, and other metadata.</p>                
+                <p><strong>YAML frontmatter</strong>: The configuration section at the top of agent files, containing name, description, tools, and other metadata.</p>                
 
-                <h2 id="future-features">� Future features (Features that I would flesh out if I had more time)</h2>
+                <h2 id="future-features">🚀 Future features (Features that I would flesh out if I had more time)</h2>
                 
                 <h2 id="more-advanced-pattern-examples">🔧 Even more advanced pattern examples</h2>
                 <p>Complex workflows and real-world implementations. This section would be fleshed out if I had more time.</p>
 
-                <h3>🔗 Multi-Stage Agent Coordination Example</h3>
+                <h3>🔗 Multi-stage agent coordination example</h3>
                 <p><strong>Complex workflow orchestration</strong> with multiple processing stages:</p>
 
                 <div class="mermaid">
 graph TD
     User[👤 User]
-    MainAgent1[🤖 Main Agent]
+    PrimaryAgent1[🤖 Primary agent]
     
-    SubAgent1A[🔍 Sub Agent 1A<br/>Code Analysis]
-    SubAgent1B[📊 Sub Agent 1B<br/>Test Coverage]
-    SubAgent1C[📝 Sub Agent 1C<br/>Documentation]
+    SubAgent1A[🔍 Subagent 1A<br/>Code analysis]
+    SubAgent1B[📊 Subagent 1B<br/>Test coverage]
+    SubAgent1C[📝 Subagent 1C<br/>Documentation]
     
-    MainAgent2[🤖 Main Agent]
+    PrimaryAgent2[🤖 Primary agent]
     
-    SubAgent2A[🛡️ Sub Agent 2A<br/>Security Review]
-    SubAgent2B[⚡ Sub Agent 2B<br/>Performance Check]
+    SubAgent2A[🛡️ Subagent 2A<br/>Security review]
+    SubAgent2B[⚡ Subagent 2B<br/>Performance check]
     
-    MainAgent3[🤖 Main Agent]
+    PrimaryAgent3[🤖 Primary agent]
     UserEnd[👤 User]
 
-    User -->|Request| MainAgent1
+    User -->|Request| PrimaryAgent1
     
-    MainAgent1 -->|1a. Analyze Code| SubAgent1A
-    MainAgent1 -->|1b. Check Tests| SubAgent1B
-    MainAgent1 -->|1c. Review Docs| SubAgent1C
+    PrimaryAgent1 -->|1a. Analyze code| SubAgent1A
+    PrimaryAgent1 -->|1b. Check tests| SubAgent1B
+    PrimaryAgent1 -->|1c. Review docs| SubAgent1C
     
-    SubAgent1A -->|Results A| MainAgent2
-    SubAgent1B -->|Results B| MainAgent2
-    SubAgent1C -->|Results C| MainAgent2
+    SubAgent1A -->|Results A| PrimaryAgent2
+    SubAgent1B -->|Results B| PrimaryAgent2
+    SubAgent1C -->|Results C| PrimaryAgent2
     
-    MainAgent2 -->|2a. Security Check| SubAgent2A
-    MainAgent2 -->|2b. Performance| SubAgent2B
+    PrimaryAgent2 -->|2a. Security check| SubAgent2A
+    PrimaryAgent2 -->|2b. Performance check| SubAgent2B
     
-    SubAgent2A -->|Results A| MainAgent3
-    SubAgent2B -->|Results B| MainAgent3
+    SubAgent2A -->|Results A| PrimaryAgent3
+    SubAgent2B -->|Results B| PrimaryAgent3
     
-    MainAgent3 -->|Final Response| UserEnd
+    PrimaryAgent3 -->|Final response| UserEnd
 
     classDef userStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     classDef mainStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     classDef subStyle fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
 
     class User userStyle
-    class MainAgent1,MainAgent2,MainAgent3 mainStyle
+    class PrimaryAgent1,PrimaryAgent2,PrimaryAgent3 mainStyle
     class SubAgent1A,SubAgent1B,SubAgent1C,SubAgent2A,SubAgent2B subStyle
                 </div>
 
-                <h3>🤖 Meta Agents</h3>
+                <h3>🤖 Meta agents</h3>
                 <p><strong>Meta agents are agent builders</strong> - specialized agents that can dynamically create new subagents on-demand based on specific requirements.</p>
 
                 <div class="info-box" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <h4>What They Do</h4>
+                    <h4>What they do</h4>
                     <ul>
-                        <li><strong>Core Function:</strong> Analyze requirements and generate new subagent configurations when needed specialists don't exist yet</li>
-                        <li><strong>Dynamic Creation:</strong> Instead of having pre-built subagents for every possible task, meta agents create them in real-time</li>
+                        <li><strong>Core function:</strong> Analyze requirements and generate new subagent configurations when needed specialists don't exist yet</li>
+                        <li><strong>Dynamic creation:</strong> Instead of having pre-built subagents for every possible task, meta agents create them in real-time</li>
                     </ul>
                 </div>
 
@@ -1509,23 +1641,35 @@ quality standards, and coordination rules.</code></pre>
                 <div class="info-box" style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0;">
                     <h4>Benefits</h4>
                     <ul>
-                        <li><strong>Infinite Scalability:</strong> Create any specialist needed without pre-planning</li>
-                        <li><strong>Adaptive Expertise:</strong> Agents evolve to meet new requirements</li>
-                        <li><strong>Reduced Maintenance:</strong> No need to pre-build every possible subagent</li>
-                        <li><strong>Context-Aware:</strong> New subagents tailored to specific project needs</li>
+                        <li><strong>Infinite scalability:</strong> Create any specialist needed without pre-planning</li>
+                        <li><strong>Adaptive expertise:</strong> Agents evolve to meet new requirements</li>
+                        <li><strong>Reduced maintenance:</strong> No need to pre-build every possible subagent</li>
+                        <li><strong>Context-aware:</strong> New subagents tailored to specific project needs</li>
                     </ul>
                 </div>
 
                 <div class="info-box" style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <h4>Workflow Example</h4>
+                    <h4>Workflow example</h4>
                     <ol>
                         <li><strong>User:</strong> "Analyze this React Native performance issue"</li>
-                        <li><strong>Main Agent:</strong> Checks for react-native-performance subagent</li>
-                        <li><strong>Meta Agent:</strong> Creates new subagent specialized in RN performance</li>
-                        <li><strong>New Subagent:</strong> Analyzes the specific performance issue</li>
+                        <li><strong>Primary agent:</strong> Checks for react-native-performance subagent</li>
+                        <li><strong>Meta agent:</strong> Creates new subagent specialized in RN performance</li>
+                        <li><strong>New subagent:</strong> Analyzes the specific performance issue</li>
                         <li><strong>Results:</strong> Expert-level React Native performance recommendations</li>
                     </ol>
                 </div>
+
+                <h2 id="prompt-engineering">📋 Prompt engineering</h2>
+                
+                <p>Key principles for creating effective agent prompts:</p>
+                
+                <ul>
+                    <li><strong>Be specific about the task and context</strong> - Clearly define what the agent should do, what inputs it will receive, and what outputs you expect. Include relevant background information and constraints.</li>
+                    <li><strong>Define success criteria and error handling</strong> - Specify what constitutes successful completion, how to handle edge cases, and when to escalate to humans or stop execution.</li>
+                    <li><strong>Structure with clear sections</strong> - Use distinct sections for instructions, examples, formatting requirements, and decision trees. This helps Claude parse complex multi-step workflows.</li>
+                    <li><strong>Include concrete examples</strong> - Provide sample inputs and desired outputs, especially for complex formatting or nuanced judgment calls. Show both positive and negative examples when helpful.</li>
+                    <li><strong>Test iteratively and refine</strong> - Start with a basic version, test with real scenarios, then add specificity and edge case handling based on actual performance. Prompts often need several iterations to work reliably.</li>
+                </ul>
 
                 <h2 id="changelogs-and-versions">📋 Changelogs and versions</h2>
                 <p>Track documentation updates and changes so developers can see what's new.  This section would be fleshed out if I had more time.</p>
