@@ -1,62 +1,68 @@
-# Anthropic Style GitHub Page
+# Claude Code Agents Hooks Documentation Guide
 
-[![Tests](https://img.shields.io/badge/tests-passing-green.svg)]() [![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)]() [![License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
+[![Agents](https://img.shields.io/badge/agents-10-blue.svg)]() [![Hooks](https://img.shields.io/badge/hooks-active-green.svg)]() [![License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
 
-A sophisticated documentation website that mirrors the style and functionality of the official Anthropic documentation. This project demonstrates modern web development practices with comprehensive testing, interactive features, and production-ready code.
+A comprehensive guide and framework for setting up Claude Code agents with automated hooks for development workflows. This project demonstrates how to create intelligent, automated code review, testing, and documentation systems using Claude's agent capabilities and hook integrations.
 
 ## ✨ Features
 
-### 🎨 **Modern Design & User Experience**
-- Clean, accessible design inspired by Anthropic's documentation
-- Responsive layout that works on all devices
-- Dark and light theme compatibility
-- Reading progress indicator
-- Smooth scrolling navigation
+### 🤖 **Intelligent Agent System**
+- **10 Specialized Agents**: Security reviewer, test engineer, docs maintainer, architect, and more
+- **Pre/Post Hook Integration**: Automated workflows triggered by code changes
+- **Context-Aware Processing**: Agents receive relevant context for intelligent responses
+- **Multi-Agent Coordination**: Seamless collaboration between different specialized agents
 
-### 🔍 **Interactive Search**
-- Real-time search functionality with debounced input
-- Context-aware search results with highlighting
-- Smart result ranking and filtering
-- Keyboard navigation support
+### 🔐 **Security & Code Quality**
+- **Automated Security Reviews**: Pre-commit security analysis and vulnerability detection
+- **Code Formatting**: Automatic prettier integration for consistent code style
+- **Permission Controls**: Granular control over what actions agents can perform
+- **Dangerous Command Prevention**: Built-in safeguards against destructive operations
 
-### 💻 **Developer-Friendly**
-- Syntax highlighting for multiple languages (Bash, JavaScript, Python, JSON, Markdown)
-- One-click code copying with visual feedback
-- Automatic language detection
-- Mermaid diagram support for technical documentation
+### 📚 **Documentation & Testing**
+- **Auto-Documentation Updates**: Agents automatically update docs when API changes
+- **Comprehensive Test Suite**: TDD specialist agent ensures test coverage
+- **Interactive Documentation Website**: Beautiful documentation interface with search
+- **Visual Diagrams**: Agent workflow diagrams and system architecture
 
-### 🧪 **Production Quality**
-- Comprehensive test suite with 95%+ coverage
-- Performance optimized for large content
-- Cross-browser compatibility
-- Error handling and graceful degradation
-- Accessibility features (ARIA attributes, keyboard navigation)
+### 🚀 **Development Workflow**
+- **Real-time Notifications**: macOS notifications for development alerts
+- **Conditional Execution**: Smart hooks that only run when relevant
+- **Performance Optimization**: Efficient agent triggering and resource management
+- **Cross-platform Compatibility**: Works on macOS, Linux, and Windows
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Node.js 16+ (for development and testing)
+- **Claude Desktop App** with agent capabilities
+- **Node.js 16+** (for testing and development)
+- **Git** for version control
+- **macOS/Linux/Windows** (macOS for notification features)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/anthropic-style-github-page.git
-   cd anthropic-style-github-page
+   git clone https://github.com/henryhyu/claude-code-agents-hooks-documentation.git
+   cd claude-code-agents-hooks-documentation-guide
    ```
 
-2. **Install dependencies** (for testing and development)
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **View the site**
+3. **Configure Claude agents**
    ```bash
-   # Simply open in browser
+   # Copy agent configurations to your Claude workspace
+   cp -r .claude/* /path/to/your/claude/workspace/.claude/
+   ```
+
+4. **View the documentation**
+   ```bash
+   # Open the interactive documentation
    open index.html
    
-   # Or serve with a local server (recommended)
+   # Or serve with local server
    npx http-server . -p 8080
    open http://localhost:8080
    ```
@@ -83,45 +89,83 @@ A sophisticated documentation website that mirrors the style and functionality o
 ## 📁 Project Structure
 
 ```
-anthropic-style-github-page/
-├── 📄 index.html              # Main HTML file with complete documentation
-├── 🎨 styles.css              # Modern CSS styling with responsive design
-├── ⚙️ scripts.js              # Main JavaScript functionality
-├── 📊 scripts-testable.js     # Refactored JS for testing
+claude-code-agents-hooks-documentation-guide/
+├── 📄 index.html              # Interactive documentation website
+├── 🎨 styles.css              # Styling for documentation interface
+├── ⚙️ scripts.js              # Documentation website functionality
 ├── 🎯 documentation-strategy.html  # Strategic documentation approach
-├── 📋 package.json            # Node.js dependencies and scripts
+├── 📋 package.json            # Node.js dependencies for testing
 ├── 📝 README.md               # This comprehensive guide
-├── 🧪 tests/                  # Comprehensive test suite
-│   ├── setup.js               # Jest configuration and mocks
-│   ├── test-utils.js          # Testing utilities
-│   ├── scripts.test.js        # Core functionality tests
-│   ├── integration.test.js    # End-to-end workflow tests
-│   ├── performance.test.js    # Performance and scalability tests
-│   └── README.md              # Detailed testing documentation
+├── 🤖 .claude/                # Claude agent configurations
+│   ├── ⚙️ settings.local.json # Hook configurations and permissions
+│   └── 👥 agents/             # Specialized agent definitions
+│       ├── security-reviewer.md     # Security analysis agent
+│       ├── test-engineer.md         # Testing and TDD specialist
+│       ├── docs-maintainer.md       # Documentation updater
+│       ├── architect.md             # System architecture advisor
+│       ├── coordinator.md           # Multi-agent coordinator
+│       ├── implementer.md           # Code implementation specialist
+│       ├── meta-builder.md          # Meta-programming assistant
+│       ├── technical-docs-web-engineer.md # Web docs specialist
+│       └── tdd-specialist.md        # Test-driven development expert
+├── 🖼️ images/                 # Agent visualization diagrams
+│   ├── Claude Code Hook.png         # Main hook system diagram
+│   ├── Claude Code Analysis.png     # Analysis workflow
+│   ├── Claude Code Architect.png    # Architecture planning
+│   ├── Claude Code Docs Maintainer.png # Documentation flow
+│   └── Claude Code Test Engineer.png   # Testing workflow
+├── 🧪 tests/                  # Test suite for documentation site
 ├── 📈 coverage/               # Test coverage reports
-└── 📚 docs/                   # Additional documentation (auto-generated)
-    ├── api.md                 # API documentation
-    ├── user-guide.md          # User guide
-    ├── developer-guide.md     # Developer guide
-    ├── architecture.md        # Architecture documentation
-    ├── deployment.md          # Deployment guide
-    └── contributing.md        # Contributing guidelines
-```
+└── 📚 docs/                   # Additional guides and documentation
+    ├── 📄 user-guide.md        # User guide for website features
+    ├── 📄 developer-guide.md   # Developer guide for extending code
+    ├── 📄 api.md               # API documentation for JavaScript functions
+    ├── 📄 architecture.md      # Architecture guide for project structure
+    ├── 📄 deployment.md        # Deployment guide for hosting and setup
+    └── 📄 contributing.md      # Contributing guidelines for developers
 
 ## 🎯 Usage
 
-### For Readers
-- **Navigation**: Use the sidebar to jump to any section
-- **Search**: Type in the search box to find specific content
-- **Code Examples**: Click "Copy" buttons to copy code snippets
-- **Progress Tracking**: Watch the progress bar at the top as you read
-- **Diagrams**: Interactive Mermaid diagrams explain complex workflows
+### Setting Up Agents
 
-### For Developers
-- **Customization**: Modify `styles.css` for design changes
-- **Content Updates**: Edit `index.html` for content changes
-- **Feature Addition**: Extend `scripts.js` for new functionality
-- **Testing**: Run `npm test` before making changes
+1. **Copy Agent Configurations**
+   ```bash
+   # Copy to your Claude workspace
+   cp .claude/agents/* /your/claude/workspace/.claude/agents/
+   cp .claude/settings.local.json /your/claude/workspace/.claude/
+   ```
+
+2. **Customize Hook Behavior**
+   ```json
+   // Edit .claude/settings.local.json
+   {
+     "hooks": {
+       "PreToolUse": [
+         {
+           "matcher": "Edit|Write",
+           "hooks": [
+             {"type": "agent", "agent": "security-reviewer"}
+           ]
+         }
+       ]
+     }
+   }
+   ```
+
+### Agent Workflows
+
+- **🔐 Security Review**: Automatically triggered on code edits
+- **📝 Documentation**: Updates docs when API files change
+- **🧪 Testing**: TDD specialist ensures test coverage
+- **🏗️ Architecture**: Provides structural guidance
+- **⚡ Performance**: Reviews code for optimization opportunities
+
+### Viewing Documentation
+
+- **Interactive Guide**: Open `index.html` for the full documentation
+- **Agent Profiles**: Browse `.claude/agents/` for detailed agent descriptions
+- **Visual Workflows**: Check `images/` for process diagrams
+- **Testing**: Run `npm test` to verify setup
 
 ## 🧪 Testing
 
@@ -191,86 +235,112 @@ npx jest performance.test.js
 
 ## 🔧 Configuration
 
-### Customizing Search
-```javascript
-// Modify search behavior in scripts.js
-const SEARCH_DEBOUNCE_MS = 300;  // Search delay
-const MAX_SEARCH_RESULTS = 5;    // Results limit
-const MIN_QUERY_LENGTH = 2;      // Minimum search length
-```
-
-### Customizing Appearance
-```css
-/* Modify theme colors in styles.css */
-:root {
-  --primary-color: #3b82f6;
-  --background-color: #ffffff;
-  --text-color: #1a1a1a;
-  --border-color: #e5e7eb;
+### Agent Settings
+```json
+// .claude/settings.local.json
+{
+  "permissions": {
+    "allow": ["Bash(export:*)"]  // Safe command permissions
+  },
+  "hooks": {
+    "PreToolUse": [              // Before code changes
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {"type": "agent", "agent": "security-reviewer"},
+          {"type": "command", "command": "npx prettier --write"}
+        ]
+      }
+    ],
+    "PostToolUse": [             // After code changes
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {"type": "agent", "agent": "docs-maintainer"}
+        ]
+      }
+    ]
+  }
 }
 ```
 
-### Adding New Content
-1. Update content in `index.html`
-2. Add navigation links in the sidebar
-3. Update search indexing if needed
-4. Test functionality with `npm test`
+### Adding New Agents
+1. Create new `.md` file in `.claude/agents/`
+2. Define agent name, description, model, and color
+3. Add agent to hook configurations
+4. Test agent integration with sample code changes
 
 ## 📚 Documentation
 
-- **[User Guide](docs/user-guide.md)**: How to use website features
-- **[Developer Guide](docs/developer-guide.md)**: Extending and modifying code
-- **[API Documentation](docs/api.md)**: JavaScript function reference
-- **[Architecture Guide](docs/architecture.md)**: Project structure and decisions
-- **[Deployment Guide](docs/deployment.md)**: Hosting and deployment
-- **[Contributing Guidelines](docs/contributing.md)**: How to contribute
+### Agent Documentation
+- **[Security Reviewer](/.claude/agents/security-reviewer.md)**: Code security analysis specialist
+- **[Test Engineer](/.claude/agents/test-engineer.md)**: TDD and testing expert
+- **[Docs Maintainer](/.claude/agents/docs-maintainer.md)**: Documentation automation
+- **[Architect](/.claude/agents/architect.md)**: System design and architecture
+- **[Coordinator](/.claude/agents/coordinator.md)**: Multi-agent workflow management
 
-## 🚀 Deployment
+### Technical Documentation
+- **[User Guide](docs/user-guide.md)**: How to use the documentation website
+- **[Developer Guide](docs/developer-guide.md)**: Extending agents and hooks
+- **[API Documentation](docs/api.md)**: JavaScript functions for the website
+- **[Architecture Guide](docs/architecture.md)**: Agent system design
+- **[Contributing Guidelines](docs/contributing.md)**: How to contribute to the project
 
-### Static Hosting (Recommended)
+## 🚀 Deployment & Setup
+
+### Claude Workspace Setup
+```bash
+# 1. Copy agent configurations
+cp -r .claude/* /path/to/your/claude/workspace/.claude/
+
+# 2. Verify agent files are in place
+ls /path/to/your/claude/workspace/.claude/agents/
+
+# 3. Test hook configuration
+echo 'console.log("test");' > test.js  # Should trigger security review
+```
+
+### Documentation Website Deployment
 ```bash
 # GitHub Pages, Netlify, Vercel
-# Simply upload all files to your hosting service
+# Upload files: index.html, styles.css, scripts.js, images/
+
+# Local development server
+npx http-server . -p 8080
 ```
 
-### Local Server
+### Agent Integration Testing
 ```bash
-# Python
-python -m http.server 8000
+# Test agent responses
+npm test
 
-# Node.js
-npx http-server . -p 8000
-
-# PHP
-php -S localhost:8000
+# Verify hook triggers
+git add . && git commit -m "test"  # Should trigger pre-commit hooks
 ```
-
-### CDN Optimization
-- Enable gzip compression
-- Set appropriate cache headers
-- Optimize images and assets
-- Use CDN for external dependencies
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](docs/contributing.md) for details.
+We welcome contributions to improve the agent system and documentation! Please see our [Contributing Guidelines](docs/contributing.md) for details.
 
-### Quick Contribution Steps
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite (`npm test`)
-6. Commit your changes (`git commit -m 'Add amazing feature'`)
-7. Push to the branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
+### Contributing to Agents
+1. **Fork the repository**
+2. **Create new agent** in `.claude/agents/[agent-name].md`
+3. **Test agent integration** with hooks
+4. **Update documentation** and examples
+5. **Submit Pull Request** with agent description
 
-### Development Workflow
+### Contributing to Documentation
 1. **Setup**: `npm install`
-2. **Develop**: Make changes to HTML, CSS, or JavaScript
-3. **Test**: `npm test` (ensure all tests pass)
-4. **Coverage**: `npm run test:coverage` (maintain 90%+ coverage)
-5. **Document**: Update documentation as needed
+2. **Develop**: Modify website files (HTML, CSS, JS)
+3. **Test**: `npm test` (ensure functionality works)
+4. **Document**: Update agent guides and examples
+5. **Commit**: Use descriptive commit messages
+
+### Agent Development Guidelines
+- Follow the existing agent template structure
+- Include clear descriptions of agent capabilities
+- Test agent responses with various code scenarios
+- Document any new hook configurations needed
 
 ## 📄 License
 
@@ -278,32 +348,35 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Anthropic**: For the inspiration and design patterns
-- **Mermaid**: For diagram rendering capabilities
-- **Prism.js**: For syntax highlighting functionality
-- **Jest**: For the comprehensive testing framework
-- **Contributors**: Everyone who has contributed to making this project better
+- **Anthropic & Claude**: For the powerful agent capabilities and API
+- **Claude Desktop Team**: For enabling agent hooks and integrations
+- **Open Source Community**: For testing frameworks and development tools
+- **Contributors**: Everyone improving the agent system and documentation
+- **Security Community**: For best practices in automated code review
 
 ## 📞 Support
 
-- **Documentation**: Check the [docs/](docs/) directory
-- **Issues**: Report bugs via GitHub Issues
-- **Discussions**: Join GitHub Discussions for questions
-- **Testing**: Run `npm test` for development issues
+- **Agent Setup**: Check `.claude/agents/` for individual agent documentation
+- **Hook Configuration**: See `.claude/settings.local.json` for examples
+- **Issues**: Report bugs or agent improvements via GitHub Issues
+- **Discussions**: Join GitHub Discussions for agent workflow questions
+- **Testing**: Run `npm test` to verify documentation website functionality
 
 ## 🔄 Changelog
 
 ### v1.0.0 (Current)
-- ✅ Complete documentation website
-- ✅ Interactive search functionality
-- ✅ Comprehensive test suite (95%+ coverage)
-- ✅ Mobile-responsive design
-- ✅ Accessibility features
-- ✅ Performance optimizations
+- ✅ 10 Specialized Claude agents with distinct roles
+- ✅ Pre/Post hook system for automated workflows
+- ✅ Security review and code formatting automation
+- ✅ Interactive documentation website with search
+- ✅ Visual diagrams and workflow illustrations
+- ✅ Comprehensive testing and validation
+- ✅ Cross-platform compatibility (macOS, Linux, Windows)
 
 ### Future Enhancements
-- [ ] Dark mode toggle
-- [ ] Multi-language support
-- [ ] Progressive Web App (PWA) features
-- [ ] Advanced search filters
-- [ ] Comment system integration
+- [ ] Additional specialized agents (DevOps, Performance, UI/UX)
+- [ ] Advanced hook conditions and triggers
+- [ ] Integration with CI/CD pipelines
+- [ ] Real-time collaboration features between agents
+- [ ] Machine learning integration for smarter code analysis
+- [ ] Plugin system for custom agent extensions
