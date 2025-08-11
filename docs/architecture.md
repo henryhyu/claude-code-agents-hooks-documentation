@@ -1,6 +1,6 @@
 # Architecture Documentation
 
-This document provides a comprehensive overview of the architectural decisions, design patterns, and technical choices that shape the Anthropic Style GitHub Page project. Understanding this architecture will help developers make informed decisions when extending or modifying the codebase.
+This document provides a comprehensive overview of the architectural decisions, design patterns, and technical choices that shape the Claude Code Agents Hooks Documentation Guide project. Understanding this architecture will help developers make informed decisions when extending or modifying the codebase.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ This document provides a comprehensive overview of the architectural decisions, 
 
 ### Philosophy
 
-The Anthropic Style GitHub Page follows a **progressive enhancement** architecture built on these core principles:
+The Claude Code Agents Hooks Documentation Guide follows a **progressive enhancement** architecture built on these core principles:
 
 1. **Content First**: Core information is accessible without JavaScript
 2. **Layer Enhancement**: Interactive features enhance but don't replace basic functionality
@@ -742,4 +742,4 @@ export const simulateUserInput = (element, value) => {
 - **Web Workers**: Offload heavy computations
 - **IndexedDB**: Client-side search indexing
 
-This architecture documentation provides a comprehensive understanding of the technical decisions and design patterns that shape the Anthropic Style GitHub Page. It serves as a guide for current development and a foundation for future enhancements.
+This architecture documentation provides a comprehensive understanding of the technical decisions and design patterns that shape the Claude Code Agents Hooks Documentation Guide. It serves as a guide for current development and a foundation for future enhancements.

@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This comprehensive deployment guide covers all aspects of hosting and deploying the Anthropic Style GitHub Page, from local development servers to production-ready hosting solutions. Choose the deployment method that best fits your needs and technical requirements.
+This comprehensive deployment guide covers all aspects of hosting and deploying the Claude Code Agents Hooks Documentation Guide, from local development servers to production-ready hosting solutions. Choose the deployment method that best fits your needs and technical requirements.
 
 ## Table of Contents
 
@@ -877,4 +877,4 @@ jobs:
           # Deploy to production URL
 ```
 
-This deployment guide provides comprehensive coverage for hosting the Anthropic Style GitHub Page across various platforms and environments. Choose the deployment method that best fits your technical requirements, budget, and maintenance capabilities.
+This deployment guide provides comprehensive coverage for hosting the Claude Code Agents Hooks Documentation Guide across various platforms and environments. Choose the deployment method that best fits your technical requirements, budget, and maintenance capabilities.

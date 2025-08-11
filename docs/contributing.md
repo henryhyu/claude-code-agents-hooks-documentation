@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-Welcome to the Anthropic Style GitHub Page project! We're excited that you're interested in contributing. This guide will help you get started and ensure your contributions align with the project's standards and goals.
+Welcome to the Claude Code Agents Hooks Documentation Guide project! We're excited that you're interested in contributing. This guide will help you get started and ensure your contributions align with the project's standards and goals.
 
 ## Table of Contents
 
@@ -906,4 +906,4 @@ All contributors are listed in:
 - **Questions**: Community members often respond quickly
 - **Pull requests**: Code review within 3-5 business days
 
-Thank you for contributing to the Anthropic Style GitHub Page project! Your contributions help make this a better resource for everyone. If you have questions about these guidelines or need help getting started, please don't hesitate to ask.
+Thank you for contributing to the Claude Code Agents Hooks Documentation Guide project! Your contributions help make this a better resource for everyone. If you have questions about these guidelines or need help getting started, please don't hesitate to ask.

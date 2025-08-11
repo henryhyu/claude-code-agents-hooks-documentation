@@ -661,7 +661,26 @@ code[class*="language-"] {
     border-bottom: 1px solid #e5e7eb;
 }
 
-/* Responsive design */
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATIONS
+   ======================================== */
+
+/* Tablet and Large Mobile (1024px and below) */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        gap: 2em;
+    }
+    
+    main {
+        padding: 1.5em;
+    }
+    
+    .sidebar {
+        padding: 1.2em;
+    }
+}
+
+/* Mobile and Small Tablet (768px and below) */
 @media (max-width: 768px) {
     .content-wrapper {
         grid-template-columns: 1fr;
@@ -671,21 +690,212 @@ code[class*="language-"] {
     .sidebar {
         position: static;
         order: 2;
+        margin-top: 2em;
+        border-radius: 6px;
     }
     
     main {
         padding: 1em;
     }
     
+    /* Enhanced Typography for Mobile */
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    h3 {
+        font-size: 1.3em;
+    }
+    
+    /* Touch-Friendly Navigation */
+    .nav-section a {
+        font-size: 0.9em;
+        padding: 0.5em 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Enhanced Search for Mobile */
+    .search-box {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px 12px 12px 40px;
+        border-radius: 8px;
+    }
+    
+    .search-icon {
+        left: 12px;
+    }
+    
+    /* Mobile-Optimized Buttons */
     .back-to-top {
         bottom: 1em;
         right: 1em;
-        width: 45px;
-        height: 45px;
-        font-size: 1.1em;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+    }
+    
+    .feedback-btn {
+        bottom: 1em;
+        right: 70px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Better Code Block Mobile Experience */
+    .copy-button {
+        top: 8px;
+        right: 8px;
+        padding: 8px 12px;
+        font-size: 14px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    pre[class*="language-"] {
+        font-size: 13px;
+        padding: 12px;
+    }
+    
+    /* Mobile Info Boxes */
+    .info-box {
+        padding: 1em;
+        margin: 1em 0;
     }
     
     .search-container {
+        margin-bottom: 1.5em;
+    }
+}
+
+/* Small Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    main {
+        padding: 0.75em;
+    }
+    
+    header {
+        padding: 1em 0;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+        padding: 0 1em;
+    }
+    
+    /* Compact Typography */
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 0.8em;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+    }
+    
+    h3 {
+        font-size: 1.2em;
+        margin-top: 1.2em;
+        margin-bottom: 0.6em;
+    }
+    
+    /* Optimized Spacing */
+    p {
         margin-bottom: 1em;
+    }
+    
+    ul, ol {
+        margin: 0.8em 0;
+        padding-left: 1.2em;
+    }
+    
+    /* Mobile-First Sidebar */
+    .sidebar {
+        margin-top: 1.5em;
+        padding: 1em;
+    }
+    
+    .nav-section {
+        margin-bottom: 1.2em;
+    }
+    
+    .nav-section h3 {
+        font-size: 1em;
+        margin-bottom: 0.5em;
+    }
+    
+    /* Enhanced Touch Targets */
+    .nav-section a {
+        padding: 0.7em 0;
+        font-size: 0.95em;
+    }
+    
+    /* Compact Code Blocks */
+    pre[class*="language-"] {
+        font-size: 12px;
+        padding: 10px;
+        border-radius: 6px;
+    }
+    
+    .copy-button {
+        top: 6px;
+        right: 6px;
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    /* Mobile Search Optimization */
+    .search-results {
+        max-height: 250px;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    /* Fixed Elements Adjustment */
+    .back-to-top,
+    .feedback-btn {
+        bottom: 0.8em;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .feedback-btn {
+        right: 60px;
+    }
+    
+    .back-to-top {
+        right: 0.8em;
+    }
+}
+
+/* Mobile-Specific Utilities */
+@media (max-width: 768px) {
+    /* Improved Touch Interactions */
+    a, button, .copy-button {
+        -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Better Focus States for Mobile */
+    .search-box:focus,
+    button:focus,
+    a:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+    
+    /* Mobile Scroll Improvements */
+    .search-results {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevent Horizontal Scroll */
+    .main-content {
+        overflow-x: hidden;
     }
 }

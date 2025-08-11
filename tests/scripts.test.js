@@ -24,7 +24,7 @@ import {
 import { fireEvent, waitFor, flushPromises, createCodeBlock, mockScrollProperties } from './test-utils.js';
 import { createMockHTML } from './setup.js';
 
-describe('Anthropic Style GitHub Page Scripts', () => {
+describe('Claude Code Agents Hooks Documentation Guide Scripts', () => {
     
     beforeEach(() => {
         // Reset DOM for each test

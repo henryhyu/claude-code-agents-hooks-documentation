@@ -1,6 +1,6 @@
 # Developer Guide
 
-This comprehensive guide provides everything you need to understand, modify, and extend the Anthropic Style GitHub Page codebase. Whether you're fixing bugs, adding features, or adapting the code for your own projects, this guide will get you started quickly.
+This comprehensive guide provides everything you need to understand, modify, and extend the Claude Code Agents Hooks Documentation Guide codebase. Whether you're fixing bugs, adding features, or adapting the code for your own projects, this guide will get you started quickly.
 
 ## Table of Contents
 
@@ -851,4 +851,4 @@ elements.searchInput.addEventListener('input', handleSearch);
 - **Continuous integration**: Run tests on every commit
 - **Performance testing**: Include performance regression tests
 
-This developer guide provides a comprehensive foundation for working with the Anthropic Style GitHub Page codebase. For specific API details, see the [API Documentation](api.md), and for architectural decisions, see the [Architecture Documentation](architecture.md).
+This developer guide provides a comprehensive foundation for working with the Claude Code Agents Hooks Documentation Guide codebase. For specific API details, see the [API Documentation](api.md), and for architectural decisions, see the [Architecture Documentation](architecture.md).

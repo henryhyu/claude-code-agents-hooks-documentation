@@ -1,6 +1,6 @@
 # User Guide
 
-Welcome to the Anthropic Style GitHub Page User Guide! This comprehensive guide will help you navigate and make the most of all the interactive features available on the documentation website.
+Welcome to the Claude Code Agents Hooks Documentation Guide User Guide! This comprehensive guide will help you navigate and make the most of all the interactive features available on the documentation website.
 
 ## Table of Contents
 
@@ -260,7 +260,7 @@ The site adapts to different screen sizes and devices:
 ### Visual Design
 
 #### Color Scheme
-- **Professional appearance** inspired by Anthropic documentation
+- **Professional appearance** with modern, clean design
 - **High contrast** for excellent readability
 - **Consistent palette** throughout the interface
 - **Accessible colors** meet WCAG guidelines
@@ -427,4 +427,4 @@ If you encounter issues not covered here:
 - **Extensions**: Disable unnecessary browser extensions
 - **Privacy settings**: Allow clipboard access for copy functionality
 
-This user guide covers all aspects of using the Anthropic Style GitHub Page documentation website. For technical details about the implementation, see the [Developer Guide](developer-guide.md) and [API Documentation](api.md).
+This user guide covers all aspects of using the Claude Code Agents Hooks Documentation Guide website. For technical details about the implementation, see the [Developer Guide](developer-guide.md) and [API Documentation](api.md).

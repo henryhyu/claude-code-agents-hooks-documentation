@@ -1,6 +1,6 @@
 # API Documentation
 
-This document provides comprehensive documentation for all JavaScript functions and APIs used in the Anthropic Style GitHub Page project.
+This document provides comprehensive documentation for all JavaScript functions and APIs used in the Claude Code Agents Hooks Documentation Guide project.
 
 ## Table of Contents
 

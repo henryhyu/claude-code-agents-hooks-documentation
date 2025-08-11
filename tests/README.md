@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project includes comprehensive test suites to ensure the reliability, performance, and user experience of the Anthropic Style GitHub Page. The tests cover all JavaScript functionality including DOM manipulation, search functionality, code highlighting, clipboard operations, and user interactions.
+This project includes comprehensive test suites to ensure the reliability, performance, and user experience of the Claude Code Agents Hooks Documentation Guide. The tests cover all JavaScript functionality including DOM manipulation, search functionality, code highlighting, clipboard operations, and user interactions.
 
 ## Test Structure
 
