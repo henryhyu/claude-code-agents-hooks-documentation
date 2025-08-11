@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Debug Test</title>
+    
+    <!-- Google tag (gtag.js) with debug mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQPH94JRV9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // Enable debug mode
+      gtag('config', 'G-XQPH94JRV9', {
+        debug_mode: true
+      });
+      
+      // Log when GA loads
+      console.log('Google Analytics script loaded');
+      console.log('DataLayer:', window.dataLayer);
+    </script>
+</head>
+<body>
+    <h1>Google Analytics Debug Test</h1>
+    <p>Check browser console for GA debug information.</p>
+    
+    <button onclick="testEvent()">Test Custom Event</button>
+    
+    <script>
+        function testEvent() {
+            gtag('event', 'test_button_click', {
+                event_category: 'engagement',
+                event_label: 'debug_test'
+            });
+            console.log('Test event sent to GA');
+        }
+        
+        // Check if gtag is loaded
+        setTimeout(() => {
+            if (typeof gtag === 'function') {
+                console.log('✅ gtag function is available');
+            } else {
+                console.log('❌ gtag function is NOT available');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
